@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XIII — Daily Reading</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: monospace;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="dailyBtn">Begin Daily Reading</button>
+
+  <script>
+    const cards = [
+      "1-BOOT",
+      "2-SIGNAL",
+      "3-PROCESS",
+      "4-CACHE",
+      "5-FIREWALL",
+      "6-ROOT",
+      "7-AUTHORITY",
+      "8-SYNC",
+      "9-ISOLATE",
+      "10-OVERFLOW",
+      "11-PATCH",
+      "12-LOOP",
+      "13-TERMINATE"
+    ];
+
+    document.getElementById("dailyBtn").onclick = () => {
+      const pick = cards[Math.floor(Math.random() * cards.length)];
+
+      // Ritual delay
+      setTimeout(() => {
+        window.location.href = `../${pick}/`;
+      }, 800);
+    };
+  </script>
+
+</body>
+</html>
