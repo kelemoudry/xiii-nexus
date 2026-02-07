@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XIII — Daily Reading</title>
+  <title>XIII — System-Query</title>
   <style>
     body {
       background: black;
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-  <button id="dailyBtn">Begin Daily Reading</button>
+  <button id="queryBtn">Initiate System Query</button>
 
   <script>
     const cards = [
@@ -41,7 +41,7 @@
       "13-TERMINATE"
     ];
 
-    document.getElementById("dailyBtn").onclick = () => {
+    document.getElementById("queryBtn").onclick = () => {
       const pick = cards[Math.floor(Math.random() * cards.length)];
 
       // Ritual delay
