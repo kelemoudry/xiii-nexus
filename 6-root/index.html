@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XIII</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../styles/card.css">
+</head>
+
+<body>
+  <div class="scene">
+    <div class="card">
+      <div class="card-face card-back">
+        <img src="../assets/images/Card - Back-modified.png" alt="Card Back">
+      </div>
+      <div class="card-face card-front">
+        <img src="../assets/gifs/Card - ROOT.gif" alt="ROOT">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector(".card").classList.add("flipped");
+      }, 500); // slight pause before reveal
+    });
+  </script>
+</body>
+</html>
