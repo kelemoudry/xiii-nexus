@@ -2,41 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XIII.NEXUS — BOOT</title>
+  <title>XIII — BOOT</title>
 
+  <!-- Core styles -->
   <link rel="stylesheet" href="../styles/card.css">
-  <script src="../scripts/card.js" defer></script>
+
+  <!-- Optional: IBM-style typography if already in use -->
+  <!-- <link rel="stylesheet" href="../styles/typography.css"> -->
 </head>
 
 <body>
 
-  <div class="card" id="card">
-    <div class="card-shell">
+  <div id="archetype-system">
 
-      <!-- BACK -->
-      <div class="card-face card-back">
-        <img src="../assets/images/card - back.png" alt="Card Back">
-      </div>
-
-      <!-- FRONT -->
-      <div class="card-face card-front">
-
-        <!-- CARD FACE -->
-        <img class="card-gif" src="../assets/gifs/card - boot.gif" alt="BOOT">
-
-        <!-- STATE OVERLAY -->
-        <img class="state-overlay" id="stateOverlay" alt="State Overlay">
-
-      </div>
-
+    <!-- SYSTEM HEADER -->
+    <div class="system-header">
+      <span class="system-label">ARCHETYPE ENDPOINT</span>
+      <h1>BOOT</h1>
     </div>
-    <div id="oracle-output">
-     <h2>SYSTEM INTERPRETATION</h2>
-     <p id="oracle-summary"></p>
-     <ul id="oracle-details"></ul>
+
+    <!-- CARD CONTAINER -->
+    <div id="card" class="card">
+      <div class="card-inner">
+
+        <!-- Card Back -->
+        <img
+          src="../assets/images/card - back.png"
+          class="card-back"
+          alt="Card Back"
+        >
+
+        <!-- Card Face -->
+        <img
+          id="cardFront"
+          class="card-front"
+          alt="Card Face"
+        >
+
+        <!-- State Overlay -->
+        <img
+          id="stateOverlay"
+          class="state-overlay"
+          alt="State Overlay"
+          style="display: none;"
+        >
+
+      </div>
+    </div>
+
+    <!-- ORACLE OUTPUT -->
+    <div id="oracle-output" class="oracle-output">
+      <p class="oracle-idle">AWAITING INPUT</p>
     </div>
 
   </div>
+
+  <!-- SYSTEM LOGIC -->
+  <script src="../scripts/card.js" defer></script>
 
 </body>
 </html>
