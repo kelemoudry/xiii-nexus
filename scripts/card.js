@@ -36,7 +36,7 @@ const STATES = [
 // LOAD ORACLE
 // ==============================
 
-fetch("./data/oracle.json")
+fetch("../data/oracle.json")
   .then(response => {
     if (!response.ok) {
       throw new Error("Oracle fetch failed");
@@ -140,3 +140,4 @@ function getOracleInterpretation(archetype, state) {
     ]
   };
 }
+
