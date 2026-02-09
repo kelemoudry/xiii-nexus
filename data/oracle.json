@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "system": "XIII",
+    "module": "Oracle Knowledge Layer",
+    "revision": "1.0",
+    "notes": "Interpretive data only. No prescriptive logic."
+  },
+
+  "positions": {
+    "INPUT": "This position describes what is entering the system or initiating activity.",
+    "PROCESS": "This position describes how the system is transforming or handling input.",
+    "OUTPUT": "This position describes what the system produces or resolves."
+  },
+
+  "states": {
+    "STABLE": {
+      "modifier": "The operation is occurring within expected parameters.",
+      "effects": [
+        "Low variance",
+        "Predictable behavior",
+        "Minimal interference"
+      ],
+      "considerations": [
+        "Stability does not imply progress",
+        "Extended stability may reduce adaptability"
+      ]
+    },
+
+    "REDUNDANT": {
+      "modifier": "The operation is duplicated or occurring in parallel.",
+      "effects": [
+        "Increased resilience",
+        "Overlapping effort",
+        "Additional resource usage"
+      ],
+      "considerations": [
+        "Redundancy may protect against failure",
+        "Excess duplication can obscure priorities"
+      ]
+    },
+
+    "DEPRECATED": {
+      "modifier": "The operation relies on outdated or unsupported structures.",
+      "effects": [
+        "Reduced reliability",
+        "Compatibility risks",
+        "Hidden dependencies"
+      ],
+      "considerations": [
+        "Function may still operate",
+        "Long-term reliance increases risk"
+      ]
+    },
+
+    "ELEVATED": {
+      "modifier": "The operation is intensified or given priority.",
+      "effects": [
+        "Increased visibility",
+        "Higher impact",
+        "Accelerated execution"
+      ],
+      "considerations": [
+        "Sustained elevation may strain resources",
+        "Other processes may be deprioritized"
+      ]
+    },
+
+    "CORRUPTED": {
+      "modifier": "The operation is compromised or distorted.",
+      "effects": [
+        "Unreliable output",
+        "Loss of integrity",
+        "Unexpected behavior"
+      ],
+      "considerations": [
+        "Failure is possible but not guaranteed",
+        "Residual effects may persist after correction"
+      ]
+    },
+
+    "EXPERIMENTAL": {
+      "modifier": "The operation is untested or in active modification.",
+      "effects": [
+        "High variance",
+        "Unproven outcomes",
+        "Potential innovation"
+      ],
+      "considerations": [
+        "Results may be misleading",
+        "Observation is recommended over action"
+      ]
+    }
+  },
+
+  "archetypes": {
+    "BOOT": {
+      "summary": "Initialization and entry into operation.",
+      "meanings": [
+        "A beginning or restart is occurring",
+        "Assumptions are being loaded",
+        "The system is becoming active"
+      ],
+      "considerations": [
+        "Initial conditions matter",
+        "Early errors propagate",
+        "Readiness does not guarantee success"
+      ]
+    },
+
+    "SIGNAL": {
+      "summary": "Transmission, reception, or indication of presence.",
+      "meanings": [
+        "Information is being sent or requested",
+        "Awareness is increasing",
+        "Noise and clarity must be distinguished"
+      ],
+      "considerations": [
+        "Sending does not ensure reception",
+        "Misinterpreted signals cause delay"
+      ]
+    },
+
+    "PROCESS": {
+      "summary": "Active execution and transformation.",
+      "meanings": [
+        "Work is being performed",
+        "Resources are being consumed",
+        "Change is underway"
+      ],
+      "considerations": [
+        "Effort does not equal progress",
+        "Unchecked processing may loop indefinitely"
+      ]
+    },
+
+    "CACHE": {
+      "summary": "Retention for deferred use.",
+      "meanings": [
+        "Resources or information are being held",
+        "Preparation is occurring",
+        "Delay is intentional"
+      ],
+      "considerations": [
+        "Stored data may become stale",
+        "Retention can prevent forward motion"
+      ]
+    },
+
+    "FIREWALL": {
+      "summary": "Boundary enforcement and protection.",
+      "meanings": [
+        "Access is restricted",
+        "Defense mechanisms are active",
+        "Selective filtering is occurring"
+      ],
+      "considerations": [
+        "Protection may block beneficial input",
+        "Over-filtering leads to isolation"
+      ]
+    },
+
+    "ROOT": {
+      "summary": "Foundational access and deep control.",
+      "meanings": [
+        "Core authority is present",
+        "Underlying structures are exposed",
+        "Changes have system-wide impact"
+      ],
+      "considerations": [
+        "Root-level changes are difficult to reverse",
+        "Misuse affects all dependent processes"
+      ]
+    },
+
+    "AUTHORITY": {
+      "summary": "External governance and enforcement.",
+      "meanings": [
+        "Rules or oversight are applied",
+        "Hierarchy influences behavior",
+        "Compliance is expected"
+      ],
+      "considerations": [
+        "Authority may stabilize or constrain",
+        "Conflicting authorities reduce clarity"
+      ]
+    },
+
+    "SYNC": {
+      "summary": "Alignment and coordinated operation.",
+      "meanings": [
+        "Systems are moving together",
+        "Timing is critical",
+        "Resonance is present"
+      ],
+      "considerations": [
+        "Forced alignment introduces stress",
+        "Misalignment causes drift"
+      ]
+    },
+
+    "ISOLATE": {
+      "summary": "Separation and containment.",
+      "meanings": [
+        "Distance is introduced deliberately",
+        "Focus is achieved through removal",
+        "Exposure is reduced"
+      ],
+      "considerations": [
+        "Isolation preserves integrity but limits growth",
+        "Extended separation increases divergence"
+      ]
+    },
+
+    "OVERFLOW": {
+      "summary": "Excess beyond capacity.",
+      "meanings": [
+        "Limits are exceeded",
+        "Release is uncontrolled",
+        "Pressure is visible"
+      ],
+      "considerations": [
+        "Overflow may damage or innovate",
+        "Capacity constraints should be reviewed"
+      ]
+    },
+
+    "PATCH": {
+      "summary": "Correction and adaptation.",
+      "meanings": [
+        "Errors are being addressed",
+        "Systems are modified to continue operation",
+        "Compromise solutions are applied"
+      ],
+      "considerations": [
+        "Patches may introduce new dependencies",
+        "Accumulated fixes obscure original design"
+      ]
+    },
+
+    "LOOP": {
+      "summary": "Repetition without resolution.",
+      "meanings": [
+        "Patterns are repeating",
+        "Exit conditions are unmet",
+        "Persistence is present"
+      ],
+      "considerations": [
+        "Loops may indicate stability or failure",
+        "External interruption may be required"
+      ]
+    },
+
+    "TERMINATE": {
+      "summary": "Cessation of execution.",
+      "meanings": [
+        "A process ends",
+        "Resources are released",
+        "Closure occurs"
+      ],
+      "considerations": [
+        "Termination is not destruction",
+        "Restart may or may not be possible"
+      ]
+    }
+  }
+}
