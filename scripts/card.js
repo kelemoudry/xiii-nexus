@@ -1,11 +1,16 @@
 // ==============================
-// GLOBALS
+// DOM REFERENCES (MATCH YOUR HTML)
 // ==============================
 
-let oracleData = null;
-let cardFlipped = false;
+const card = document.getElementById("card");
+const cardFrontImg = document.getElementById("cardFront"); // <-- make sure this exists
+const stateOverlay = document.getElementById("stateOverlay");
+const oracleOutput = document.getElementById("oracle-output");
 
-// Archetypes must match your file naming EXACTLY
+// ==============================
+// DATA
+// ==============================
+
 const ARCHETYPES = [
   "BOOT",
   "SIGNAL",
@@ -22,33 +27,33 @@ const ARCHETYPES = [
   "TERMINATE"
 ];
 
-// States must match oracle.json keys
 const STATES = [
-  "STABLE",
-  "REDUNDANT",
-  "DEPRECATED",
-  "ELEVATED",
-  "CORRUPTED",
-  "EXPERIMENTAL"
+  { key: "STABLE", src: "../assets/images/state - stable.png", class: "stable" },
+  { key: "REDUNDANT", src: "../assets/images/state - redundant.png", class: "redundant" },
+  { key: "DEPRECATED", src: "../assets/images/state - deprecated.png", class: "deprecated" },
+  { key: "ELEVATED", src: "../assets/images/state - elevated.png", class: "elevated" },
+  { key: "CORRUPTED", src: "../assets/images/state - corrupted.png", class: "corrupted" },
+  { key: "EXPERIMENTAL", src: "../assets/images/state - experimental.png", class: "experimental" }
 ];
+
+let oracleData = null;
+let hasFlipped = false;
 
 // ==============================
 // LOAD ORACLE
 // ==============================
 
 fetch("../data/oracle.json")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("Oracle fetch failed");
-    }
-    return response.json();
+  .then(res => {
+    if (!res.ok) throw new Error("Oracle fetch failed");
+    return res.json();
   })
   .then(data => {
     oracleData = data;
     console.log("Oracle loaded:", oracleData);
   })
-  .catch(error => {
-    console.error("Oracle failed to load:", error);
+  .catch(err => {
+    console.error("Oracle failed to load:", err);
   });
 
 // ==============================
@@ -60,26 +65,20 @@ function randomFrom(array) {
 }
 
 // ==============================
-// MAIN CARD LOGIC
+// MAIN INTERACTION
 // ==============================
 
-const card = document.querySelector(".card");
-const cardFrontImg = document.getElementById("card-front");
-const stateOverlay = document.getElementById("state-overlay");
-const oracleOutput = document.getElementById("oracle-output");
-
 card.addEventListener("click", () => {
-  if (cardFlipped) return;
+  if (hasFlipped) return;
+  hasFlipped = true;
 
-  cardFlipped = true;
-
-  // 1. Flip the card
+  // Flip animation
   card.classList.add("flipped");
 
-  // 2. After flip animation completes, resolve card + state
+  // After flip finishes
   setTimeout(() => {
     runSystemQuery();
-  }, 800); // must match CSS flip duration
+  }, 1000); // MUST match your CSS flip duration
 });
 
 // ==============================
@@ -88,31 +87,33 @@ card.addEventListener("click", () => {
 
 function runSystemQuery() {
   if (!oracleData) {
-    oracleOutput.innerText = "ORACLE UNAVAILABLE";
+    oracleOutput.innerText = "ORACLE OFFLINE";
     return;
   }
 
-  // Pick archetype + state
   const archetype = randomFrom(ARCHETYPES);
-  const state = randomFrom(STATES);
+  const stateObj = randomFrom(STATES);
 
-  console.log("Selected:", archetype, state);
+  console.log("Selected:", archetype, stateObj.key);
 
-  // 3. Set card face
-  cardFrontImg.src = `./assets/gifs/card - ${archetype}.gif`;
+  // Set card face
+  if (cardFrontImg) {
+    cardFrontImg.src = `../assets/gifs/card - ${archetype}.gif`;
+  }
 
-  // 4. Set state overlay (PNG or GIF, transparent)
-  stateOverlay.src = `./assets/images/state-${state}.png`;
-  stateOverlay.classList.add(`state-${state.toLowerCase()}`);
+  // Set state overlay
+  stateOverlay.src = stateObj.src;
+  stateOverlay.className = `state-overlay ${stateObj.class} active`;
+  stateOverlay.style.display = "block";
 
-  // 5. Oracle interpretation
-  const interpretation = getOracleInterpretation(archetype, state);
+  // Oracle interpretation
+  const interpretation = getOracleInterpretation(archetype, stateObj.key);
 
   oracleOutput.innerHTML = `
-    <h2>${archetype} :: ${state}</h2>
+    <h2>${archetype} :: ${stateObj.key}</h2>
     <p>${interpretation.summary}</p>
     <ul>
-      ${interpretation.guidance.map(item => `<li>${item}</li>`).join("")}
+      ${interpretation.guidance.map(line => `<li>${line}</li>`).join("")}
     </ul>
   `;
 }
@@ -127,7 +128,7 @@ function getOracleInterpretation(archetype, state) {
 
   if (!cardData || !stateData) {
     return {
-      summary: "DATA CORRUPTED OR UNAVAILABLE.",
+      summary: "INTERPRETATION UNAVAILABLE",
       guidance: []
     };
   }
@@ -140,4 +141,3 @@ function getOracleInterpretation(archetype, state) {
     ]
   };
 }
-
