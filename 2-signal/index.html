@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XIII.NEXUS — BOOT</title>
+  <title>XIII.NEXUS — SIGNAL</title>
 
   <link rel="stylesheet" href="../styles/card.css">
   <script src="../scripts/card.js" defer></script>
@@ -10,26 +10,37 @@
 
 <body>
 
-  <div class="card" id="card">
-    <div class="card-shell">
+  <!-- FLEX WRAPPER -->
+  <div class="card-console-wrapper">
 
-      <!-- BACK -->
-      <div class="card-face card-back">
-        <img src="../assets/images/card - back.png" alt="Card Back">
+    <!-- CARD -->
+    <div class="card" id="card">
+      <div class="card-shell">
+
+        <!-- BACK -->
+        <div class="card-face card-back">
+          <img src="../assets/images/card - back.png" alt="Card Back">
+        </div>
+
+        <!-- FRONT -->
+        <div class="card-face card-front">
+
+          <!-- CARD FACE -->
+          <img class="card-gif" src="../assets/gifs/card - signal.gif" alt="SIGNAL">
+
+          <!-- STATE OVERLAY -->
+          <img class="state-overlay" id="stateOverlay" alt="State Overlay">
+
+        </div>
+
       </div>
-
-      <!-- FRONT -->
-      <div class="card-face card-front">
-
-        <!-- CARD FACE -->
-        <img class="card-gif" src="../assets/gifs/card - signal.gif" alt="Signal">
-
-        <!-- STATE OVERLAY -->
-        <img class="state-overlay" id="stateOverlay" alt="State Overlay">
-
-      </div>
-
     </div>
+
+    <!-- CONSOLE (PROCESS-ONLY INTERPRETATION) -->
+ <div class="console">
+    <div class="console-output"></div>
+  </div>
+
   </div>
 
 </body>

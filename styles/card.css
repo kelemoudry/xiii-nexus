@@ -1,4 +1,7 @@
-/* General page layout */
+/* =========================
+   GLOBAL LAYOUT
+   ========================= */
+
 body {
   margin: 0;
   background: black;
@@ -7,63 +10,106 @@ body {
   align-items: center;
   height: 100vh;
   font-family: sans-serif;
+  color: #8affff;
 }
 
+/* Wrapper for card + console */
+.card-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Console positioned relative to card center */
+.console {
+  position: absolute;
+  left: 70%;      /* moves console to the right of the card */
+  top: 50%;        /* vertical center of card */
+  transform: translateY(-50%);
+  width: 300px;    /* adjust as needed */
+  color: #0ff;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
 /* Card container */
 .card {
-  width: 320px;
-  height: 520px;
+  width: 300px;
+  height: 500px;
   perspective: 1200px;
   cursor: pointer;
 }
 
 .card-shell {
-  position: relative;
   width: 100%;
   height: 100%;
+  position: relative;
+  border-radius: 8px;
   transform-style: preserve-3d;
-  transition: transform 1s ease;
+  transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-/* Flip the card */
 .card.flipped .card-shell {
   transform: rotateY(180deg);
 }
 
-/* Card faces */
+/* =========================
+   CARD FACES
+   ========================= */
+
 .card-face {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: visible;
+}
+
+.card-back {
+  background: #000;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-front {
   transform: rotateY(180deg);
+  background: #000;
 }
 
-/* Images inside faces */
-.card-face img {
+/* =========================
+   CARD IMAGES
+   ========================= */
+
+.card-gif {
   width: 100%;
   height: 100%;
   object-fit: fill;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
+/* =========================
+   STATE OVERLAY
+   ========================= */
 
-/* State overlay */
 .state-overlay {
   position: absolute;
   inset: 0;
+
   width: 100%;
   height: 100%;
   object-fit: fill;
-  display: none;
-  pointer-events: none;
-  z-index: 2;
-
-  /* Start hidden & ready for animation */
   opacity: 0;
-  transform: scale(1);
+  transition: opacity 0.4s ease;
+
+  pointer-events: none;
+}
+
+.state-overlay.active {
+  opacity: 1;
 }
 
 /* === STATE ANIMATIONS === */
@@ -134,4 +180,22 @@ body {
 @keyframes rotateHue {
   0% { filter: hue-rotate(0deg); }
   100% { filter: hue-rotate(360deg); }
+}
+
+/* =========================
+   CONSOLE SCANLINES (SUBTLE)
+   ========================= */
+
+.console::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 255, 0.03),
+    rgba(0, 255, 255, 0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
 }

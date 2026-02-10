@@ -1,34 +1,80 @@
 const card = document.getElementById("card");
 const stateOverlay = document.getElementById("stateOverlay");
+const consoleOutput = document.querySelector(".console-output");
+
+const ARCHETYPE = "BOOT";
+const STAGE = "Process";
 
 const states = [
-  { src: "../assets/images/state - stable.png", class: "stable" },
-  { src: "../assets/images/state - redundant.png", class: "redundant" },
-  { src: "../assets/images/state - deprecated.png", class: "deprecated" },
-  { src: "../assets/images/state - elevated.png", class: "elevated" },
-  { src: "../assets/images/state - corrupted.png", class: "corrupted" },
-  { src: "../assets/images/state - experimental.png", class: "experimental" }
+  { name: "STABLE", src: "../assets/images/state - stable.png", class: "stable" },
+  { name: "REDUNDANT", src: "../assets/images/state - redundant.png", class: "redundant" },
+  { name: "DEPRECATED", src: "../assets/images/state - deprecated.png", class: "deprecated" },
+  { name: "ELEVATED", src: "../assets/images/state - elevated.png", class: "elevated" },
+  { name: "CORRUPTED", src: "../assets/images/state - corrupted.png", class: "corrupted" },
+  { name: "EXPERIMENTAL", src: "../assets/images/state - experimental.png", class: "experimental" }
 ];
 
+let oracleData = [];
 let hasFlipped = false;
+
+/* Load oracle data */
+fetch("../data/oracle.json")
+  .then(res => res.json())
+  .then(data => oracleData = data)
+  .catch(err => {
+    console.error(err);
+    consoleOutput.textContent = "ORACLE DATA LOAD FAILURE";
+  });
 
 card.addEventListener("click", () => {
   if (hasFlipped) return;
   hasFlipped = true;
 
-  // Flip the card
   card.classList.add("flipped");
 
-  // After flip animation finishes
   setTimeout(() => {
-    // Pick a random state
-    const randomState = states[Math.floor(Math.random() * states.length)];
-    stateOverlay.src = randomState.src;
+    const state = states[Math.floor(Math.random() * states.length)];
 
-    // Apply state class for animations
-    stateOverlay.className = "state-overlay " + randomState.class + " active";
-
-    // Make it visible
+    stateOverlay.src = state.src;
+    stateOverlay.className = `state-overlay ${state.class} active`;
     stateOverlay.style.display = "block";
-  }, 1000); // matches CSS flip duration
+
+    renderConsole(state.name);
+  }, 900);
 });
+
+/* Console render */
+function renderConsole(stateName) {
+  const entry = oracleData.find(row =>
+    row.Archetype === ARCHETYPE &&
+    row.State === stateName &&
+    row.Stage === STAGE
+  );
+
+  if (!entry) {
+    consoleOutput.textContent =
+`[??-??-??]
+${ARCHETYPE} (${stateName})
+NO DATA AVAILABLE`;
+    return;
+  }
+
+  typeText(
+`[${entry["Hex Code"]}]
+${ARCHETYPE} (${stateName})
+
+${entry.Meaning}`
+  );
+}
+
+/* Typing effect */
+function typeText(text) {
+  consoleOutput.textContent = "";
+  let i = 0;
+
+  const interval = setInterval(() => {
+    consoleOutput.textContent += text[i];
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, 18);
+}

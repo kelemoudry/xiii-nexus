@@ -10,26 +10,37 @@
 
 <body>
 
-  <div class="card" id="card">
-    <div class="card-shell">
+  <!-- FLEX WRAPPER -->
+  <div class="card-console-wrapper">
 
-      <!-- BACK -->
-      <div class="card-face card-back">
-        <img src="../assets/images/card - back.png" alt="Card Back">
+    <!-- CARD -->
+    <div class="card" id="card">
+      <div class="card-shell">
+
+        <!-- BACK -->
+        <div class="card-face card-back">
+          <img src="../assets/images/card - back.png" alt="Card Back">
+        </div>
+
+        <!-- FRONT -->
+        <div class="card-face card-front">
+
+          <!-- CARD FACE -->
+          <img class="card-gif" src="../assets/gifs/card - boot.gif" alt="BOOT">
+
+          <!-- STATE OVERLAY -->
+          <img class="state-overlay" id="stateOverlay" alt="State Overlay">
+
+        </div>
+
       </div>
-
-      <!-- FRONT -->
-      <div class="card-face card-front">
-
-        <!-- CARD FACE -->
-        <img class="card-gif" src="../assets/gifs/card - boot.gif" alt="BOOT">
-
-        <!-- STATE OVERLAY -->
-        <img class="state-overlay" id="stateOverlay" alt="State Overlay">
-
-      </div>
-
     </div>
+
+    <!-- CONSOLE (PROCESS-ONLY INTERPRETATION) -->
+ <div class="console">
+    <div class="console-output"></div>
+  </div>
+
   </div>
 
 </body>
