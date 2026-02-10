@@ -9,26 +9,38 @@
 </head>
 <body>
 
-  <div class="flow-container">
+  <div class="layout">
 
-    <div class="slot">
-      <div class="label">INPUT</div>
-      <div class="card" data-slot="0"></div>
+    <!-- CENTER CONTENT -->
+    <div class="center-column">
+      <div class="flow-container">
+
+        <div class="slot">
+          <div class="label">INPUT</div>
+          <div class="card" data-slot="0"></div>
+        </div>
+
+        <div class="slot">
+          <div class="label">PROCESS</div>
+          <div class="card" data-slot="1"></div>
+        </div>
+
+        <div class="slot">
+          <div class="label">OUTPUT</div>
+          <div class="card" data-slot="2"></div>
+        </div>
+
+      </div>
+
+      <div class="prompt">Click to draw Input</div>
     </div>
 
-    <div class="slot">
-      <div class="label">PROCESS</div>
-      <div class="card" data-slot="1"></div>
-    </div>
-
-    <div class="slot">
-      <div class="label">OUTPUT</div>
-      <div class="card" data-slot="2"></div>
+    <!-- RIGHT CONSOLE -->
+    <div class="console">
+      <div class="console-output"></div>
     </div>
 
   </div>
-
-  <div class="prompt">Click to draw Input</div>
 
 </body>
 </html>

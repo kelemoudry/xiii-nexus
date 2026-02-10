@@ -1,7 +1,7 @@
 /* General page layout */
 body {
   margin: 0;
-  background: white;
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,8 +45,10 @@ body {
 .card-face img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
+  border-radius: 16px;
 }
+
 
 /* State overlay */
 .state-overlay {
@@ -54,7 +56,7 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
   display: none;
   pointer-events: none;
   z-index: 2;

@@ -1,266 +1,1640 @@
-{
-  "meta": {
-    "system": "XIII",
-    "module": "Oracle Knowledge Layer",
-    "revision": "1.0",
-    "notes": "Interpretive data only. No prescriptive logic."
+[
+  {
+    "Archetype": "BOOT",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "00 00 00",
+    "Meaning": "Initiation of a system in a controlled and predictable manner enters the system."
   },
-
-  "positions": {
-    "INPUT": "This position describes what is entering the system or initiating activity.",
-    "PROCESS": "This position describes how the system is transforming or handling input.",
-    "OUTPUT": "This position describes what the system produces or resolves."
+  {
+    "Archetype": "BOOT",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "00 00 01",
+    "Meaning": "Initiation of a system in a controlled and predictable manner reshapes the operational flow."
   },
-
-  "states": {
-    "STABLE": {
-      "modifier": "The operation is occurring within expected parameters.",
-      "effects": [
-        "Low variance",
-        "Predictable behavior",
-        "Minimal interference"
-      ],
-      "considerations": [
-        "Stability does not imply progress",
-        "Extended stability may reduce adaptability"
-      ]
-    },
-
-    "REDUNDANT": {
-      "modifier": "The operation is duplicated or occurring in parallel.",
-      "effects": [
-        "Increased resilience",
-        "Overlapping effort",
-        "Additional resource usage"
-      ],
-      "considerations": [
-        "Redundancy may protect against failure",
-        "Excess duplication can obscure priorities"
-      ]
-    },
-
-    "DEPRECATED": {
-      "modifier": "The operation relies on outdated or unsupported structures.",
-      "effects": [
-        "Reduced reliability",
-        "Compatibility risks",
-        "Hidden dependencies"
-      ],
-      "considerations": [
-        "Function may still operate",
-        "Long-term reliance increases risk"
-      ]
-    },
-
-    "ELEVATED": {
-      "modifier": "The operation is intensified or given priority.",
-      "effects": [
-        "Increased visibility",
-        "Higher impact",
-        "Accelerated execution"
-      ],
-      "considerations": [
-        "Sustained elevation may strain resources",
-        "Other processes may be deprioritized"
-      ]
-    },
-
-    "CORRUPTED": {
-      "modifier": "The operation is compromised or distorted.",
-      "effects": [
-        "Unreliable output",
-        "Loss of integrity",
-        "Unexpected behavior"
-      ],
-      "considerations": [
-        "Failure is possible but not guaranteed",
-        "Residual effects may persist after correction"
-      ]
-    },
-
-    "EXPERIMENTAL": {
-      "modifier": "The operation is untested or in active modification.",
-      "effects": [
-        "High variance",
-        "Unproven outcomes",
-        "Potential innovation"
-      ],
-      "considerations": [
-        "Results may be misleading",
-        "Observation is recommended over action"
-      ]
-    }
+  {
+    "Archetype": "BOOT",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "00 00 02",
+    "Meaning": "Initiation of a system in a controlled and predictable manner resolves into a tangible outcome."
   },
-
-  "archetypes": {
-    "BOOT": {
-      "summary": "Initialization and entry into operation.",
-      "meanings": [
-        "A beginning or restart is occurring",
-        "Assumptions are being loaded",
-        "The system is becoming active"
-      ],
-      "considerations": [
-        "Initial conditions matter",
-        "Early errors propagate",
-        "Readiness does not guarantee success"
-      ]
-    },
-
-    "SIGNAL": {
-      "summary": "Transmission, reception, or indication of presence.",
-      "meanings": [
-        "Information is being sent or requested",
-        "Awareness is increasing",
-        "Noise and clarity must be distinguished"
-      ],
-      "considerations": [
-        "Sending does not ensure reception",
-        "Misinterpreted signals cause delay"
-      ]
-    },
-
-    "PROCESS": {
-      "summary": "Active execution and transformation.",
-      "meanings": [
-        "Work is being performed",
-        "Resources are being consumed",
-        "Change is underway"
-      ],
-      "considerations": [
-        "Effort does not equal progress",
-        "Unchecked processing may loop indefinitely"
-      ]
-    },
-
-    "CACHE": {
-      "summary": "Retention for deferred use.",
-      "meanings": [
-        "Resources or information are being held",
-        "Preparation is occurring",
-        "Delay is intentional"
-      ],
-      "considerations": [
-        "Stored data may become stale",
-        "Retention can prevent forward motion"
-      ]
-    },
-
-    "FIREWALL": {
-      "summary": "Boundary enforcement and protection.",
-      "meanings": [
-        "Access is restricted",
-        "Defense mechanisms are active",
-        "Selective filtering is occurring"
-      ],
-      "considerations": [
-        "Protection may block beneficial input",
-        "Over-filtering leads to isolation"
-      ]
-    },
-
-    "ROOT": {
-      "summary": "Foundational access and deep control.",
-      "meanings": [
-        "Core authority is present",
-        "Underlying structures are exposed",
-        "Changes have system-wide impact"
-      ],
-      "considerations": [
-        "Root-level changes are difficult to reverse",
-        "Misuse affects all dependent processes"
-      ]
-    },
-
-    "AUTHORITY": {
-      "summary": "External governance and enforcement.",
-      "meanings": [
-        "Rules or oversight are applied",
-        "Hierarchy influences behavior",
-        "Compliance is expected"
-      ],
-      "considerations": [
-        "Authority may stabilize or constrain",
-        "Conflicting authorities reduce clarity"
-      ]
-    },
-
-    "SYNC": {
-      "summary": "Alignment and coordinated operation.",
-      "meanings": [
-        "Systems are moving together",
-        "Timing is critical",
-        "Resonance is present"
-      ],
-      "considerations": [
-        "Forced alignment introduces stress",
-        "Misalignment causes drift"
-      ]
-    },
-
-    "ISOLATE": {
-      "summary": "Separation and containment.",
-      "meanings": [
-        "Distance is introduced deliberately",
-        "Focus is achieved through removal",
-        "Exposure is reduced"
-      ],
-      "considerations": [
-        "Isolation preserves integrity but limits growth",
-        "Extended separation increases divergence"
-      ]
-    },
-
-    "OVERFLOW": {
-      "summary": "Excess beyond capacity.",
-      "meanings": [
-        "Limits are exceeded",
-        "Release is uncontrolled",
-        "Pressure is visible"
-      ],
-      "considerations": [
-        "Overflow may damage or innovate",
-        "Capacity constraints should be reviewed"
-      ]
-    },
-
-    "PATCH": {
-      "summary": "Correction and adaptation.",
-      "meanings": [
-        "Errors are being addressed",
-        "Systems are modified to continue operation",
-        "Compromise solutions are applied"
-      ],
-      "considerations": [
-        "Patches may introduce new dependencies",
-        "Accumulated fixes obscure original design"
-      ]
-    },
-
-    "LOOP": {
-      "summary": "Repetition without resolution.",
-      "meanings": [
-        "Patterns are repeating",
-        "Exit conditions are unmet",
-        "Persistence is present"
-      ],
-      "considerations": [
-        "Loops may indicate stability or failure",
-        "External interruption may be required"
-      ]
-    },
-
-    "TERMINATE": {
-      "summary": "Cessation of execution.",
-      "meanings": [
-        "A process ends",
-        "Resources are released",
-        "Closure occurs"
-      ],
-      "considerations": [
-        "Termination is not destruction",
-        "Restart may or may not be possible"
-      ]
-    }
+  {
+    "Archetype": "BOOT",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "00 01 00",
+    "Meaning": "Initiation of a system through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "00 01 01",
+    "Meaning": "Initiation of a system through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "00 01 02",
+    "Meaning": "Initiation of a system through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "00 02 00",
+    "Meaning": "Initiation of a system using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "00 02 01",
+    "Meaning": "Initiation of a system using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "00 02 02",
+    "Meaning": "Initiation of a system using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "00 03 00",
+    "Meaning": "Initiation of a system with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "00 03 01",
+    "Meaning": "Initiation of a system with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "00 03 02",
+    "Meaning": "Initiation of a system with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "00 04 00",
+    "Meaning": "Initiation of a system in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "00 04 01",
+    "Meaning": "Initiation of a system in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "00 04 02",
+    "Meaning": "Initiation of a system in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "00 05 00",
+    "Meaning": "Initiation of a system through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "00 05 01",
+    "Meaning": "Initiation of a system through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "00 05 02",
+    "Meaning": "Initiation of a system through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "01 00 00",
+    "Meaning": "Transmission of intent in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "01 00 01",
+    "Meaning": "Transmission of intent in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "01 00 02",
+    "Meaning": "Transmission of intent in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "01 01 00",
+    "Meaning": "Transmission of intent through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "01 01 01",
+    "Meaning": "Transmission of intent through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "01 01 02",
+    "Meaning": "Transmission of intent through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "01 02 00",
+    "Meaning": "Transmission of intent using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "01 02 01",
+    "Meaning": "Transmission of intent using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "01 02 02",
+    "Meaning": "Transmission of intent using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "01 03 00",
+    "Meaning": "Transmission of intent with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "01 03 01",
+    "Meaning": "Transmission of intent with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "01 03 02",
+    "Meaning": "Transmission of intent with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "01 04 00",
+    "Meaning": "Transmission of intent in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "01 04 01",
+    "Meaning": "Transmission of intent in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "01 04 02",
+    "Meaning": "Transmission of intent in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "01 05 00",
+    "Meaning": "Transmission of intent through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "01 05 01",
+    "Meaning": "Transmission of intent through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "01 05 02",
+    "Meaning": "Transmission of intent through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "02 00 00",
+    "Meaning": "Active transformation in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "02 00 01",
+    "Meaning": "Active transformation in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "02 00 02",
+    "Meaning": "Active transformation in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "02 01 00",
+    "Meaning": "Active transformation through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "02 01 01",
+    "Meaning": "Active transformation through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "02 01 02",
+    "Meaning": "Active transformation through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "02 02 00",
+    "Meaning": "Active transformation using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "02 02 01",
+    "Meaning": "Active transformation using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "02 02 02",
+    "Meaning": "Active transformation using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "02 03 00",
+    "Meaning": "Active transformation with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "02 03 01",
+    "Meaning": "Active transformation with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "02 03 02",
+    "Meaning": "Active transformation with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "02 04 00",
+    "Meaning": "Active transformation in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "02 04 01",
+    "Meaning": "Active transformation in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "02 04 02",
+    "Meaning": "Active transformation in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "02 05 00",
+    "Meaning": "Active transformation through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "02 05 01",
+    "Meaning": "Active transformation through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "02 05 02",
+    "Meaning": "Active transformation through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "03 00 00",
+    "Meaning": "Preservation of memory in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "03 00 01",
+    "Meaning": "Preservation of memory in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "03 00 02",
+    "Meaning": "Preservation of memory in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "03 01 00",
+    "Meaning": "Preservation of memory through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "03 01 01",
+    "Meaning": "Preservation of memory through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "03 01 02",
+    "Meaning": "Preservation of memory through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "03 02 00",
+    "Meaning": "Preservation of memory using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "03 02 01",
+    "Meaning": "Preservation of memory using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "03 02 02",
+    "Meaning": "Preservation of memory using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "03 03 00",
+    "Meaning": "Preservation of memory with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "03 03 01",
+    "Meaning": "Preservation of memory with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "03 03 02",
+    "Meaning": "Preservation of memory with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "03 04 00",
+    "Meaning": "Preservation of memory in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "03 04 01",
+    "Meaning": "Preservation of memory in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "03 04 02",
+    "Meaning": "Preservation of memory in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "03 05 00",
+    "Meaning": "Preservation of memory through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "03 05 01",
+    "Meaning": "Preservation of memory through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "03 05 02",
+    "Meaning": "Preservation of memory through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "04 00 00",
+    "Meaning": "Enforcement of boundaries in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "04 00 01",
+    "Meaning": "Enforcement of boundaries in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "04 00 02",
+    "Meaning": "Enforcement of boundaries in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "04 01 00",
+    "Meaning": "Enforcement of boundaries through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "04 01 01",
+    "Meaning": "Enforcement of boundaries through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "04 01 02",
+    "Meaning": "Enforcement of boundaries through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "04 02 00",
+    "Meaning": "Enforcement of boundaries using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "04 02 01",
+    "Meaning": "Enforcement of boundaries using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "04 02 02",
+    "Meaning": "Enforcement of boundaries using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "04 03 00",
+    "Meaning": "Enforcement of boundaries with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "04 03 01",
+    "Meaning": "Enforcement of boundaries with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "04 03 02",
+    "Meaning": "Enforcement of boundaries with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "04 04 00",
+    "Meaning": "Enforcement of boundaries in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "04 04 01",
+    "Meaning": "Enforcement of boundaries in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "04 04 02",
+    "Meaning": "Enforcement of boundaries in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "04 05 00",
+    "Meaning": "Enforcement of boundaries through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "04 05 01",
+    "Meaning": "Enforcement of boundaries through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "04 05 02",
+    "Meaning": "Enforcement of boundaries through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "05 00 00",
+    "Meaning": "Foundational authority in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "05 00 01",
+    "Meaning": "Foundational authority in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "05 00 02",
+    "Meaning": "Foundational authority in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "05 01 00",
+    "Meaning": "Foundational authority through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "05 01 01",
+    "Meaning": "Foundational authority through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "05 01 02",
+    "Meaning": "Foundational authority through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "05 02 00",
+    "Meaning": "Foundational authority using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "05 02 01",
+    "Meaning": "Foundational authority using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "05 02 02",
+    "Meaning": "Foundational authority using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "05 03 00",
+    "Meaning": "Foundational authority with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "05 03 01",
+    "Meaning": "Foundational authority with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "05 03 02",
+    "Meaning": "Foundational authority with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "05 04 00",
+    "Meaning": "Foundational authority in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "05 04 01",
+    "Meaning": "Foundational authority in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "05 04 02",
+    "Meaning": "Foundational authority in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "05 05 00",
+    "Meaning": "Foundational authority through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "05 05 01",
+    "Meaning": "Foundational authority through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "05 05 02",
+    "Meaning": "Foundational authority through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "06 00 00",
+    "Meaning": "Control and command in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "06 00 01",
+    "Meaning": "Control and command in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "06 00 02",
+    "Meaning": "Control and command in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "06 01 00",
+    "Meaning": "Control and command through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "06 01 01",
+    "Meaning": "Control and command through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "06 01 02",
+    "Meaning": "Control and command through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "06 02 00",
+    "Meaning": "Control and command using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "06 02 01",
+    "Meaning": "Control and command using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "06 02 02",
+    "Meaning": "Control and command using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "06 03 00",
+    "Meaning": "Control and command with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "06 03 01",
+    "Meaning": "Control and command with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "06 03 02",
+    "Meaning": "Control and command with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "06 04 00",
+    "Meaning": "Control and command in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "06 04 01",
+    "Meaning": "Control and command in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "06 04 02",
+    "Meaning": "Control and command in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "06 05 00",
+    "Meaning": "Control and command through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "06 05 01",
+    "Meaning": "Control and command through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "06 05 02",
+    "Meaning": "Control and command through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "07 00 00",
+    "Meaning": "Alignment of systems in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "07 00 01",
+    "Meaning": "Alignment of systems in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "07 00 02",
+    "Meaning": "Alignment of systems in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "07 01 00",
+    "Meaning": "Alignment of systems through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "07 01 01",
+    "Meaning": "Alignment of systems through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "07 01 02",
+    "Meaning": "Alignment of systems through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "07 02 00",
+    "Meaning": "Alignment of systems using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "07 02 01",
+    "Meaning": "Alignment of systems using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "07 02 02",
+    "Meaning": "Alignment of systems using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "07 03 00",
+    "Meaning": "Alignment of systems with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "07 03 01",
+    "Meaning": "Alignment of systems with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "07 03 02",
+    "Meaning": "Alignment of systems with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "07 04 00",
+    "Meaning": "Alignment of systems in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "07 04 01",
+    "Meaning": "Alignment of systems in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "07 04 02",
+    "Meaning": "Alignment of systems in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "07 05 00",
+    "Meaning": "Alignment of systems through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "07 05 01",
+    "Meaning": "Alignment of systems through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "07 05 02",
+    "Meaning": "Alignment of systems through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "08 00 00",
+    "Meaning": "Deliberate separation in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "08 00 01",
+    "Meaning": "Deliberate separation in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "08 00 02",
+    "Meaning": "Deliberate separation in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "08 01 00",
+    "Meaning": "Deliberate separation through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "08 01 01",
+    "Meaning": "Deliberate separation through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "08 01 02",
+    "Meaning": "Deliberate separation through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "08 02 00",
+    "Meaning": "Deliberate separation using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "08 02 01",
+    "Meaning": "Deliberate separation using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "08 02 02",
+    "Meaning": "Deliberate separation using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "08 03 00",
+    "Meaning": "Deliberate separation with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "08 03 01",
+    "Meaning": "Deliberate separation with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "08 03 02",
+    "Meaning": "Deliberate separation with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "08 04 00",
+    "Meaning": "Deliberate separation in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "08 04 01",
+    "Meaning": "Deliberate separation in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "08 04 02",
+    "Meaning": "Deliberate separation in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "08 05 00",
+    "Meaning": "Deliberate separation through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "08 05 01",
+    "Meaning": "Deliberate separation through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "08 05 02",
+    "Meaning": "Deliberate separation through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "09 00 00",
+    "Meaning": "Excess beyond capacity in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "09 00 01",
+    "Meaning": "Excess beyond capacity in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "09 00 02",
+    "Meaning": "Excess beyond capacity in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "09 01 00",
+    "Meaning": "Excess beyond capacity through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "09 01 01",
+    "Meaning": "Excess beyond capacity through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "09 01 02",
+    "Meaning": "Excess beyond capacity through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "09 02 00",
+    "Meaning": "Excess beyond capacity using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "09 02 01",
+    "Meaning": "Excess beyond capacity using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "09 02 02",
+    "Meaning": "Excess beyond capacity using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "09 03 00",
+    "Meaning": "Excess beyond capacity with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "09 03 01",
+    "Meaning": "Excess beyond capacity with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "09 03 02",
+    "Meaning": "Excess beyond capacity with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "09 04 00",
+    "Meaning": "Excess beyond capacity in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "09 04 01",
+    "Meaning": "Excess beyond capacity in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "09 04 02",
+    "Meaning": "Excess beyond capacity in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "09 05 00",
+    "Meaning": "Excess beyond capacity through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "09 05 01",
+    "Meaning": "Excess beyond capacity through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "09 05 02",
+    "Meaning": "Excess beyond capacity through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "0A 00 00",
+    "Meaning": "Correction and repair in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "0A 00 01",
+    "Meaning": "Correction and repair in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "0A 00 02",
+    "Meaning": "Correction and repair in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "0A 01 00",
+    "Meaning": "Correction and repair through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "0A 01 01",
+    "Meaning": "Correction and repair through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "0A 01 02",
+    "Meaning": "Correction and repair through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "0A 02 00",
+    "Meaning": "Correction and repair using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "0A 02 01",
+    "Meaning": "Correction and repair using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "0A 02 02",
+    "Meaning": "Correction and repair using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "0A 03 00",
+    "Meaning": "Correction and repair with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "0A 03 01",
+    "Meaning": "Correction and repair with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "0A 03 02",
+    "Meaning": "Correction and repair with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "0A 04 00",
+    "Meaning": "Correction and repair in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "0A 04 01",
+    "Meaning": "Correction and repair in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "0A 04 02",
+    "Meaning": "Correction and repair in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "0A 05 00",
+    "Meaning": "Correction and repair through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "0A 05 01",
+    "Meaning": "Correction and repair through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "0A 05 02",
+    "Meaning": "Correction and repair through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "0B 00 00",
+    "Meaning": "Repetition without resolution in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "0B 00 01",
+    "Meaning": "Repetition without resolution in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "0B 00 02",
+    "Meaning": "Repetition without resolution in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "0B 01 00",
+    "Meaning": "Repetition without resolution through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "0B 01 01",
+    "Meaning": "Repetition without resolution through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "0B 01 02",
+    "Meaning": "Repetition without resolution through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "0B 02 00",
+    "Meaning": "Repetition without resolution using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "0B 02 01",
+    "Meaning": "Repetition without resolution using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "0B 02 02",
+    "Meaning": "Repetition without resolution using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "0B 03 00",
+    "Meaning": "Repetition without resolution with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "0B 03 01",
+    "Meaning": "Repetition without resolution with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "0B 03 02",
+    "Meaning": "Repetition without resolution with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "0B 04 00",
+    "Meaning": "Repetition without resolution in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "0B 04 01",
+    "Meaning": "Repetition without resolution in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "0B 04 02",
+    "Meaning": "Repetition without resolution in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "0B 05 00",
+    "Meaning": "Repetition without resolution through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "0B 05 01",
+    "Meaning": "Repetition without resolution through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "0B 05 02",
+    "Meaning": "Repetition without resolution through untested or volatile means resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "0C 00 00",
+    "Meaning": "Forced conclusion in a controlled and predictable manner enters the system."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "0C 00 01",
+    "Meaning": "Forced conclusion in a controlled and predictable manner reshapes the operational flow."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "0C 00 02",
+    "Meaning": "Forced conclusion in a controlled and predictable manner resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "0C 01 00",
+    "Meaning": "Forced conclusion through repetition and reinforcement enters the system."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "0C 01 01",
+    "Meaning": "Forced conclusion through repetition and reinforcement reshapes the operational flow."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "0C 01 02",
+    "Meaning": "Forced conclusion through repetition and reinforcement resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "0C 02 00",
+    "Meaning": "Forced conclusion using obsolete or fading mechanisms enters the system."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "0C 02 01",
+    "Meaning": "Forced conclusion using obsolete or fading mechanisms reshapes the operational flow."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "0C 02 02",
+    "Meaning": "Forced conclusion using obsolete or fading mechanisms resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "0C 03 00",
+    "Meaning": "Forced conclusion with increased intensity or priority enters the system."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "0C 03 01",
+    "Meaning": "Forced conclusion with increased intensity or priority reshapes the operational flow."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "0C 03 02",
+    "Meaning": "Forced conclusion with increased intensity or priority resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "0C 04 00",
+    "Meaning": "Forced conclusion in a distorted or unstable form enters the system."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "0C 04 01",
+    "Meaning": "Forced conclusion in a distorted or unstable form reshapes the operational flow."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "0C 04 02",
+    "Meaning": "Forced conclusion in a distorted or unstable form resolves into a tangible outcome."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "0C 05 00",
+    "Meaning": "Forced conclusion through untested or volatile means enters the system."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "0C 05 01",
+    "Meaning": "Forced conclusion through untested or volatile means reshapes the operational flow."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "0C 05 02",
+    "Meaning": "Forced conclusion through untested or volatile means resolves into a tangible outcome."
   }
-}
+]
