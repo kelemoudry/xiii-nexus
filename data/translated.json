@@ -1,0 +1,1640 @@
+[
+  {
+    "Archetype": "BOOT",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "00 00 00",
+    "Meaning": "A starting impulse in a calm, grounded way, emerges first."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "00 00 01",
+    "Meaning": "A starting impulse in a calm, grounded way, influences what follows."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "00 00 02",
+    "Meaning": "A starting impulse in a calm, grounded way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "00 01 00",
+    "Meaning": "A starting impulse reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "00 01 01",
+    "Meaning": "A starting impulse reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "00 01 02",
+    "Meaning": "A starting impulse reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "00 02 00",
+    "Meaning": "A beginning shaped by old assumptions is set about."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "00 02 01",
+    "Meaning": "The start unfolds using habits that no longer fully apply."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "00 02 02",
+    "Meaning": "Progress occurs, but along a path already fading."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "00 03 00",
+    "Meaning": "A starting impulse with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "00 03 01",
+    "Meaning": "A starting impulse with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "00 03 02",
+    "Meaning": "A starting impulse with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "00 04 00",
+    "Meaning": "A beginning forms under unclear or unstable conditions."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "00 04 01",
+    "Meaning": "Early actions reinforce uncertainty."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "00 04 02",
+    "Meaning": "The result reflects flaws present from the start."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "00 05 00",
+    "Meaning": "A starting impulse in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "00 05 01",
+    "Meaning": "A starting impulse in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "BOOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "00 05 02",
+    "Meaning": "A starting impulse in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "01 00 00",
+    "Meaning": "An expressed intention in a calm, grounded way, emerges first."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "01 00 01",
+    "Meaning": "An expressed intention in a calm, grounded way, influences what follows."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "01 00 02",
+    "Meaning": "An expressed intention in a calm, grounded way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "01 01 00",
+    "Meaning": "A message arrives already repeated."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "01 01 01",
+    "Meaning": "Intent is reinforced through insistence."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "01 01 02",
+    "Meaning": "Clarity is achieved, but subtlety is lost."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "01 02 00",
+    "Meaning": "An expressed intention shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "01 02 01",
+    "Meaning": "An expressed intention shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "01 02 02",
+    "Meaning": "An expressed intention shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "01 03 00",
+    "Meaning": "An expressed intention with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "01 03 01",
+    "Meaning": "An expressed intention with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "01 03 02",
+    "Meaning": "An expressed intention with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "01 04 00",
+    "Meaning": "A message enters distorted or incomplete."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "01 04 01",
+    "Meaning": "Meaning shifts as it is interpreted."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "01 04 02",
+    "Meaning": "What emerges differs from what was intended."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "01 05 00",
+    "Meaning": "An expressed intention in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "01 05 01",
+    "Meaning": "An expressed intention in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "SIGNAL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "01 05 02",
+    "Meaning": "An expressed intention in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "02 00 00",
+    "Meaning": "Change begins exactly as expected."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "02 00 01",
+    "Meaning": "Transformations proceeds smoothly without disruption."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "02 00 02",
+    "Meaning": "Motion occurs but little is truly altered."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "02 01 00",
+    "Meaning": "A force of change reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "02 01 01",
+    "Meaning": "A force of change reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "02 01 02",
+    "Meaning": "A force of change reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "02 02 00",
+    "Meaning": "A force of change shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "02 02 01",
+    "Meaning": "A force of change shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "02 02 02",
+    "Meaning": "A force of change shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "02 03 00",
+    "Meaning": "A force of change with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "02 03 01",
+    "Meaning": "A force of change with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "02 03 02",
+    "Meaning": "A force of change with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "02 04 00",
+    "Meaning": "A force of change in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "02 04 01",
+    "Meaning": "A force of change in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "02 04 02",
+    "Meaning": "A force of change in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "02 05 00",
+    "Meaning": "Change is initiated without certainty."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "02 05 01",
+    "Meaning": "Trial and error guide transformation."
+  },
+  {
+    "Archetype": "PROCESS",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "02 05 02",
+    "Meaning": "Results are discovered rather than planned."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "03 00 00",
+    "Meaning": "Stored patterns are accessed without resistance."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "03 00 01",
+    "Meaning": "Preservation is favored over adaptation."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "03 00 02",
+    "Meaning": "What remains is unchanged, for better or worse."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "03 01 00",
+    "Meaning": "Something being held onto reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "03 01 01",
+    "Meaning": "Something being held onto reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "03 01 02",
+    "Meaning": "Something being held onto reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "03 02 00",
+    "Meaning": "Something being held onto shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "03 02 01",
+    "Meaning": "Something being held onto shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "03 02 02",
+    "Meaning": "Something being held onto shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "03 03 00",
+    "Meaning": "Something being held onto with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "03 03 01",
+    "Meaning": "Something being held onto with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "03 03 02",
+    "Meaning": "Something being held onto with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "03 04 00",
+    "Meaning": "Memories appear to be incomplete or altered."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "03 04 01",
+    "Meaning": "Recollection reshapes itself under pressure."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "03 04 02",
+    "Meaning": "The past influences the present unreliably."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "03 05 00",
+    "Meaning": "Something being held onto in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "03 05 01",
+    "Meaning": "Something being held onto in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "CACHE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "03 05 02",
+    "Meaning": "Something being held onto in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "04 00 00",
+    "Meaning": "A boundary that has been drawn in a calm, grounded way, emerges first."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "04 00 01",
+    "Meaning": "A boundary that has been drawn in a calm, grounded way, influences what follows."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "04 00 02",
+    "Meaning": "A boundary that has been drawn in a calm, grounded way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "04 01 00",
+    "Meaning": "A boundary that has been drawn reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "04 01 01",
+    "Meaning": "A boundary that has been drawn reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "04 01 02",
+    "Meaning": "A boundary that has been drawn reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "04 02 00",
+    "Meaning": "A boundary that has been drawn shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "04 02 01",
+    "Meaning": "A boundary that has been drawn shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "04 02 02",
+    "Meaning": "A boundary that has been drawn shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "04 03 00",
+    "Meaning": "A strong boundary is set immediately."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "04 03 01",
+    "Meaning": "Protection is actively reinforced."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "04 03 02",
+    "Meaning": "Security is achieved by limiting access."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "04 04 00",
+    "Meaning": "A boundary appears uneven or weak."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "04 04 01",
+    "Meaning": "Filtering can change what passes through."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "04 04 02",
+    "Meaning": "Safety creates unintended interference."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "04 05 00",
+    "Meaning": "A boundary that has been drawn in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "04 05 01",
+    "Meaning": "A boundary that has been drawn in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "FIREWALL",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "04 05 02",
+    "Meaning": "A boundary that has been drawn in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "05 00 00",
+    "Meaning": "An underlying source of power in a calm, grounded way, emerges first."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "05 00 01",
+    "Meaning": "An underlying source of power in a calm, grounded way, influences what follows."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "05 00 02",
+    "Meaning": "An underlying source of power in a calm, grounded way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "05 01 00",
+    "Meaning": "An underlying source of power reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "05 01 01",
+    "Meaning": "An underlying source of power reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "05 01 02",
+    "Meaning": "An underlying source of power reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "05 02 00",
+    "Meaning": "An underlying source of power shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "05 02 01",
+    "Meaning": "An underlying source of power shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "05 02 02",
+    "Meaning": "An underlying source of power shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "05 03 00",
+    "Meaning": "An underlying source of power with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "05 03 01",
+    "Meaning": "An underlying source of power with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "05 03 02",
+    "Meaning": "An underlying source of power with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "05 04 00",
+    "Meaning": "An underlying source of power in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "05 04 01",
+    "Meaning": "An underlying source of power in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "05 04 02",
+    "Meaning": "An underlying source of power in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "05 05 00",
+    "Meaning": "Authority is called upon without illustration."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "05 05 01",
+    "Meaning": "Power tests its own limits."
+  },
+  {
+    "Archetype": "ROOT",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "05 05 02",
+    "Meaning": "Control exists, but remains unstable."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "06 00 00",
+    "Meaning": "A directing influence in a calm, grounded way, emerges first."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "06 00 01",
+    "Meaning": "A directing influence in a calm, grounded way, influences what follows."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "06 00 02",
+    "Meaning": "A directing influence in a calm, grounded way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "06 01 00",
+    "Meaning": "A directing influence reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "06 01 01",
+    "Meaning": "A directing influence reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "06 01 02",
+    "Meaning": "A directing influence reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "06 02 00",
+    "Meaning": "Control enters through established channels."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "06 02 01",
+    "Meaning": "Command is maintained out of habit."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "06 02 02",
+    "Meaning": "Influence persists despite diminishing legitimacy."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "06 03 00",
+    "Meaning": "A directing influence with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "06 03 01",
+    "Meaning": "A directing influence with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "06 03 02",
+    "Meaning": "A directing influence with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "06 04 00",
+    "Meaning": "A directing influence in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "06 04 01",
+    "Meaning": "A directing influence in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "06 04 02",
+    "Meaning": "A directing influence in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "06 05 00",
+    "Meaning": "A directing influence in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "06 05 01",
+    "Meaning": "A directing influence in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "AUTHORITY",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "06 05 02",
+    "Meaning": "A directing influence in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "07 00 00",
+    "Meaning": "Shared alignment in a calm, grounded way, emerges first."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "07 00 01",
+    "Meaning": "Shared alignment in a calm, grounded way, influences what follows."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "07 00 02",
+    "Meaning": "Shared alignment in a calm, grounded way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "07 01 00",
+    "Meaning": "Shared alignment reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "07 01 01",
+    "Meaning": "Shared alignment reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "07 01 02",
+    "Meaning": "Shared alignment reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "07 02 00",
+    "Meaning": "Shared alignment shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "07 02 01",
+    "Meaning": "Shared alignment shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "07 02 02",
+    "Meaning": "Shared alignment shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "07 03 00",
+    "Meaning": "Shared alignment with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "07 03 01",
+    "Meaning": "Shared alignment with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "07 03 02",
+    "Meaning": "Shared alignment with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "07 04 00",
+    "Meaning": "Alignment appears to be present."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "07 04 01",
+    "Meaning": "Coordination breaks down beneath the surface."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "07 04 02",
+    "Meaning": "Systems diverge despite shared intent."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "07 05 00",
+    "Meaning": "Shared alignment in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "07 05 01",
+    "Meaning": "Shared alignment in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "SYNC",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "07 05 02",
+    "Meaning": "Shared alignment in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "08 00 00",
+    "Meaning": "Distance is established comfortably."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "08 00 01",
+    "Meaning": "Separation becomes routine."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "08 00 02",
+    "Meaning": "Isolation persists without challenge."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "08 01 00",
+    "Meaning": "Chosen distance reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "08 01 01",
+    "Meaning": "Chosen distance reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "08 01 02",
+    "Meaning": "Chosen distance reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "08 02 00",
+    "Meaning": "Chosen distance shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "08 02 01",
+    "Meaning": "Chosen distance shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "08 02 02",
+    "Meaning": "Chosen distance shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "08 03 00",
+    "Meaning": "Chosen distance with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "08 03 01",
+    "Meaning": "Chosen distance with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "08 03 02",
+    "Meaning": "Chosen distance with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "08 04 00",
+    "Meaning": "Chosen distance in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "08 04 01",
+    "Meaning": "Chosen distance in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "08 04 02",
+    "Meaning": "Chosen distance in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "08 05 00",
+    "Meaning": "Chosen distance in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "08 05 01",
+    "Meaning": "Chosen distance in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "ISOLATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "08 05 02",
+    "Meaning": "Chosen distance in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "09 00 00",
+    "Meaning": "Excess enters without immediate response."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "09 00 01",
+    "Meaning": "Capacity is quietly exceeded."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "09 00 02",
+    "Meaning": "Strain becomes normalized."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "09 01 00",
+    "Meaning": "An excess of pressure reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "09 01 01",
+    "Meaning": "An excess of pressure reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "09 01 02",
+    "Meaning": "An excess of pressure reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "09 02 00",
+    "Meaning": "An excess of pressure shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "09 02 01",
+    "Meaning": "An excess of pressure shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "09 02 02",
+    "Meaning": "An excess of pressure shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "09 03 00",
+    "Meaning": "An excess of pressure with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "09 03 01",
+    "Meaning": "An excess of pressure with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "09 03 02",
+    "Meaning": "An excess of pressure with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "09 04 00",
+    "Meaning": "An excess of pressure in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "09 04 01",
+    "Meaning": "An excess of pressure in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "09 04 02",
+    "Meaning": "An excess of pressure in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "09 05 00",
+    "Meaning": "An excess of pressure in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "09 05 01",
+    "Meaning": "An excess of pressure in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "OVERFLOW",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "09 05 02",
+    "Meaning": "An excess of pressure in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "0A 00 00",
+    "Meaning": "An attempt at repair in a calm, grounded way, emerges first."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "0A 00 01",
+    "Meaning": "An attempt at repair in a calm, grounded way, influences what follows."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "0A 00 02",
+    "Meaning": "An attempt at repair in a calm, grounded way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "0A 01 00",
+    "Meaning": "An attempt at repair reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "0A 01 01",
+    "Meaning": "An attempt at repair reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "0A 01 02",
+    "Meaning": "An attempt at repair reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "0A 02 00",
+    "Meaning": "Repair relies on familiar methods."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "0A 02 01",
+    "Meaning": "Corrections fail to address root causes."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "0A 02 02",
+    "Meaning": "Issues persist beneath the surface."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "0A 03 00",
+    "Meaning": "An attempt at repair with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "0A 03 01",
+    "Meaning": "An attempt at repair with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "0A 03 02",
+    "Meaning": "An attempt at repair with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "0A 04 00",
+    "Meaning": "An attempt at repair in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "0A 04 01",
+    "Meaning": "An attempt at repair in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "0A 04 02",
+    "Meaning": "An attempt at repair in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "0A 05 00",
+    "Meaning": "A fix is attempted without certainty."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "0A 05 01",
+    "Meaning": "Adjustments introduce new variables."
+  },
+  {
+    "Archetype": "PATCH",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "0A 05 02",
+    "Meaning": "Resolution remains partial or shifts elsewhere."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "0B 00 00",
+    "Meaning": "A familiar pattern resumes."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "0B 00 01",
+    "Meaning": "Repetition continues without interruption."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "0B 00 02",
+    "Meaning": "The cycle remains unresolved."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "0B 01 00",
+    "Meaning": "A recurring pattern reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "0B 01 01",
+    "Meaning": "A recurring pattern reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "0B 01 02",
+    "Meaning": "A recurring pattern reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "0B 02 00",
+    "Meaning": "A recurring pattern shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "0B 02 01",
+    "Meaning": "A recurring pattern shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "0B 02 02",
+    "Meaning": "A recurring pattern shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "0B 03 00",
+    "Meaning": "A pattern intensifies rapidly."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "0B 03 01",
+    "Meaning": "Repetition accelerates."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "0B 03 02",
+    "Meaning": "The cycle demands attention or collapse."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "0B 04 00",
+    "Meaning": "A recurring pattern in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "0B 04 01",
+    "Meaning": "A recurring pattern in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "0B 04 02",
+    "Meaning": "A recurring pattern in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "0B 05 00",
+    "Meaning": "A recurring pattern in an uncertain, exploratory way, emerges first."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "0B 05 01",
+    "Meaning": "A recurring pattern in an uncertain, exploratory way, influences what follows."
+  },
+  {
+    "Archetype": "LOOP",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "0B 05 02",
+    "Meaning": "A recurring pattern in an uncertain, exploratory way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "STABLE",
+    "Stage": "Input",
+    "Hex Code": "0C 00 00",
+    "Meaning": "An ending is initiated calmly."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "STABLE",
+    "Stage": "Process",
+    "Hex Code": "0C 00 01",
+    "Meaning": "Closure proceeds without resistance."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "STABLE",
+    "Stage": "Output",
+    "Hex Code": "0C 00 02",
+    "Meaning": "The conclusion settles cleanly."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "REDUNDANT",
+    "Stage": "Input",
+    "Hex Code": "0C 01 00",
+    "Meaning": "A decisive ending reinforced and persistent, emerges first."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "REDUNDANT",
+    "Stage": "Process",
+    "Hex Code": "0C 01 01",
+    "Meaning": "A decisive ending reinforced and persistent, influences what follows."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "REDUNDANT",
+    "Stage": "Output",
+    "Hex Code": "0C 01 02",
+    "Meaning": "A decisive ending reinforced and persistent, leaves a lasting effect."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "DEPRECATED",
+    "Stage": "Input",
+    "Hex Code": "0C 02 00",
+    "Meaning": "A decisive ending shaped by what is outdated, emerges first."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "DEPRECATED",
+    "Stage": "Process",
+    "Hex Code": "0C 02 01",
+    "Meaning": "A decisive ending shaped by what is outdated, influences what follows."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "DEPRECATED",
+    "Stage": "Output",
+    "Hex Code": "0C 02 02",
+    "Meaning": "A decisive ending shaped by what is outdated, leaves a lasting effect."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "ELEVATED",
+    "Stage": "Input",
+    "Hex Code": "0C 03 00",
+    "Meaning": "A decisive ending with heightened intensity, emerges first."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "ELEVATED",
+    "Stage": "Process",
+    "Hex Code": "0C 03 01",
+    "Meaning": "A decisive ending with heightened intensity, influences what follows."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "ELEVATED",
+    "Stage": "Output",
+    "Hex Code": "0C 03 02",
+    "Meaning": "A decisive ending with heightened intensity, leaves a lasting effect."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "CORRUPTED",
+    "Stage": "Input",
+    "Hex Code": "0C 04 00",
+    "Meaning": "A decisive ending in a distorted or unreliable way, emerges first."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "CORRUPTED",
+    "Stage": "Process",
+    "Hex Code": "0C 04 01",
+    "Meaning": "A decisive ending in a distorted or unreliable way, influences what follows."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "CORRUPTED",
+    "Stage": "Output",
+    "Hex Code": "0C 04 02",
+    "Meaning": "A decisive ending in a distorted or unreliable way, leaves a lasting effect."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Input",
+    "Hex Code": "0C 05 00",
+    "Meaning": "An ending is chosen without knowing what follows."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Process",
+    "Hex Code": "0C 05 01",
+    "Meaning": "Severance creates uncertainty."
+  },
+  {
+    "Archetype": "TERMINATE",
+    "State": "EXPERIMENTAL",
+    "Stage": "Output",
+    "Hex Code": "0C 05 02",
+    "Meaning": "Space opens for an unknown next state."
+  }
+]

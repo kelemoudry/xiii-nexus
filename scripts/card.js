@@ -2,8 +2,21 @@ const card = document.getElementById("card");
 const stateOverlay = document.getElementById("stateOverlay");
 const consoleOutput = document.querySelector(".console-output");
 
-const ARCHETYPE = "BOOT";
+// ==============================
+// CONFIG
+// ==============================
+
+// Prefer data attribute, fallback to constant
+const ARCHETYPE = card?.dataset?.archetype || "BOOT";
 const STAGE = "Process";
+
+// Oracle mode flag
+const params = new URLSearchParams(window.location.search);
+const ORACLE_MODE = params.get("oraclemode"); // null | query
+
+// ==============================
+// STATE DATA
+// ==============================
 
 const states = [
   { name: "STABLE", src: "../assets/images/state - stable.png", class: "stable" },
@@ -15,9 +28,14 @@ const states = [
 ];
 
 let oracleData = [];
+let oracleTranslated = [];
 let hasFlipped = false;
 
-/* Load oracle data */
+// ==============================
+// LOAD DATA
+// ==============================
+
+// Always load system meanings
 fetch("../data/oracle.json")
   .then(res => res.json())
   .then(data => oracleData = data)
@@ -25,6 +43,18 @@ fetch("../data/oracle.json")
     console.error(err);
     consoleOutput.textContent = "ORACLE DATA LOAD FAILURE";
   });
+
+// Only load translated meanings if oracle-query is active
+if (ORACLE_MODE === "query") {
+  fetch("../data/translated.json")
+    .then(res => res.json())
+    .then(data => oracleTranslated = data)
+    .catch(err => console.warn("Translated oracle unavailable", err));
+}
+
+// ==============================
+// INTERACTION
+// ==============================
 
 card.addEventListener("click", () => {
   if (hasFlipped) return;
@@ -43,15 +73,18 @@ card.addEventListener("click", () => {
   }, 900);
 });
 
-/* Console render */
+// ==============================
+// CONSOLE RENDER
+// ==============================
+
 function renderConsole(stateName) {
-  const entry = oracleData.find(row =>
+  const systemEntry = oracleData.find(row =>
     row.Archetype === ARCHETYPE &&
     row.State === stateName &&
     row.Stage === STAGE
   );
 
-  if (!entry) {
+  if (!systemEntry) {
     consoleOutput.textContent =
 `[??-??-??]
 ${ARCHETYPE} (${stateName})
@@ -59,15 +92,37 @@ NO DATA AVAILABLE`;
     return;
   }
 
-  typeText(
-`[${entry["Hex Code"]}]
+  // Default output (normal mode)
+  let output =
+`[${systemEntry["Hex Code"]}]
 ${ARCHETYPE} (${stateName})
 
-${entry.Meaning}`
-  );
+${systemEntry.Meaning}`;
+
+  // Oracle-query enhancement (adds interpretation, does NOT replace)
+  if (ORACLE_MODE === "query" && oracleTranslated.length) {
+    const translatedEntry = oracleTranslated.find(row =>
+      row.Archetype === ARCHETYPE &&
+      row.State === stateName &&
+      row.Stage === STAGE
+    );
+
+    if (translatedEntry) {
+      output += `
+
+— ORACLE INTERPRETATION —
+
+${translatedEntry.Meaning}`;
+    }
+  }
+
+  typeText(output);
 }
 
-/* Typing effect */
+// ==============================
+// TYPE EFFECT
+// ==============================
+
 function typeText(text) {
   consoleOutput.textContent = "";
   let i = 0;

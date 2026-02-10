@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XIII.NEXUS — ORACLE QUERY</title>
+
+  <link rel="stylesheet" href="../styles/oracle-query.css">
+  <script src="../scripts/oracle-query.js" defer></script>
+</head>
+
+<body>
+
+  <div class="scene">
+
+    <!-- CENTER CARD -->
+    <div class="card" id="card">
+      <div class="card-shell">
+
+        <!-- BACK -->
+        <div class="card-face card-back">
+          <img src="../assets/images/card - back.png" alt="Card Back">
+        </div>
+
+        <!-- FRONT -->
+        <div class="card-face card-front">
+
+           <!-- injected dynamically after scan -->
+          <img class="card-gif"
+           id="cardImage"
+           alt=""
+           style="display:none;">
+
+          <!-- STATE OVERLAY -->
+          <img class="state-overlay" id="stateOverlay" alt="State Overlay">
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE CONSOLES -->
+    <div class="oracle-panels">
+
+      <!-- ORACLE INTERPRETATION -->
+      <div class="oracle-panel oracle-panel--oracle">
+        <div class="panel-title" id="oracleTitle">ORACLE</div>
+        <div class="oracle-console" id="oracleConsole"></div>
+      </div>
+
+      <!-- SYSTEM CONTEXT -->
+      <div class="oracle-panel oracle-panel--system">
+        <div class="panel-title">SYSTEM</div>
+        <div class="oracle-console" id="systemConsole"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
