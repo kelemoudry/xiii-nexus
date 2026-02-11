@@ -3,54 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>XIII.NEXUS — Oracle Query</title>
-
   <link rel="stylesheet" href="../styles/oracle-query.css">
-  <script>
-    // Enable oracle mode for this session
-  sessionStorage.setItem("oracleMode", "true");
-  </script>
   <script src="../scripts/oracle-query.js" defer></script>
 </head>
-
 <body>
 
-  <div class="layout">
+  <div class="oracle-container">
 
-    <!-- CARD AREA -->
-    <div class="card-area">
+    <!-- Card Display -->
+    <div class="card" id="card">
+      <div class="card-shell">
 
-      <div class="card" id="card">
-        <div class="card-shell">
-
-          <div class="card-face card-back">
-            <img src="../assets/images/card - back.png" alt="Card Back">
-          </div>
-
-          <div class="card-face card-front">
-            <img class="card-gif" alt="Card Face">
-            <img class="state-overlay" id="stateOverlay" alt="State Overlay">
-          </div>
-
+        <!-- Back -->
+        <div class="card-face card-back">
+          <img src="../assets/images/card - back.png" alt="Card Back">
         </div>
+
+        <!-- Front -->
+        <div class="card-face card-front">
+          <img class="card-gif" alt="Card Face">
+          <img class="state-overlay" id="stateOverlay" alt="State Overlay">
+        </div>
+
       </div>
-
-      <button id="simulateScan">Simulate Scan</button>
-
     </div>
 
-    <!-- CONSOLE AREA -->
-    <div class="console-area">
+    <!-- Prompt -->
+    <div class="prompt">SCAN CARD</div>
 
-      <div class="console-box">
-        <div class="console-title">SYSTEM OUTPUT</div>
-        <div class="console-output" id="systemConsole"></div>
-      </div>
-
-      <div class="console-box">
-        <div class="console-title">ORACLE TRANSLATION</div>
-        <div class="console-output" id="oracleConsole"></div>
-      </div>
-
+    <!-- Console Output -->
+    <div class="console">
+      <div class="console-output console-system"></div>
+      <div class="console-output console-oracle"></div>
     </div>
 
   </div>
