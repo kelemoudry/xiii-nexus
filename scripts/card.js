@@ -1,22 +1,19 @@
+/* =========================
+   DOM REFERENCES
+========================= */
+
 const card = document.getElementById("card");
 const stateOverlay = document.getElementById("stateOverlay");
 const consoleOutput = document.querySelector(".console-output");
 
-// ==============================
-// CONFIG
-// ==============================
-
-// Prefer data attribute, fallback to constant
-const ARCHETYPE = card?.dataset?.archetype || "BOOT";
+const ARCHETYPE = document.body.dataset.archetype;
 const STAGE = "Process";
 
-// Oracle mode flag
-const params = new URLSearchParams(window.location.search);
-const ORACLE_MODE = params.get("oraclemode"); // null | query
+let hasFlipped = false;
 
-// ==============================
-// STATE DATA
-// ==============================
+/* =========================
+   STATE DEFINITIONS
+========================= */
 
 const states = [
   { name: "STABLE", src: "../assets/images/state - stable.png", class: "stable" },
@@ -27,42 +24,63 @@ const states = [
   { name: "EXPERIMENTAL", src: "../assets/images/state - experimental.png", class: "experimental" }
 ];
 
-let oracleData = [];
-let oracleTranslated = [];
-let hasFlipped = false;
+/* =========================
+   ORACLE MODE
+========================= */
+const oracleMode = sessionStorage.getItem("oracleMode") === "true";
 
-// ==============================
-// LOAD DATA
-// ==============================
+let systemData = [];
+let translatedData = [];
 
-// Always load system meanings
-fetch("../data/oracle.json")
-  .then(res => res.json())
-  .then(data => oracleData = data)
+/* =========================
+   LOAD DATA
+========================= */
+
+if (!oracleMode) {
+
+  fetch("../data/oracle.json")
+    .then(res => res.json())
+    .then(data => {
+      systemData = data;
+    })
+    .catch(err => {
+      console.error(err);
+      if (consoleOutput) {
+        consoleOutput.textContent = "SYSTEM DATA LOAD FAILURE";
+      }
+    });
+
+} else {
+
+  Promise.all([
+    fetch("../data/oracle.json").then(res => res.json()),
+    fetch("../data/translated.json").then(res => res.json())
+  ])
+  .then(([system, translated]) => {
+    systemData = system;
+    translatedData = translated;
+  })
   .catch(err => {
     console.error(err);
-    consoleOutput.textContent = "ORACLE DATA LOAD FAILURE";
+    if (consoleOutput) {
+      consoleOutput.textContent = "ORACLE DATA LOAD FAILURE";
+    }
   });
-
-// Only load translated meanings if oracle-query is active
-if (ORACLE_MODE === "query") {
-  fetch("../data/translated.json")
-    .then(res => res.json())
-    .then(data => oracleTranslated = data)
-    .catch(err => console.warn("Translated oracle unavailable", err));
 }
 
-// ==============================
-// INTERACTION
-// ==============================
+/* =========================
+   CARD CLICK
+========================= */
 
 card.addEventListener("click", () => {
+
   if (hasFlipped) return;
   hasFlipped = true;
 
   card.classList.add("flipped");
 
   setTimeout(() => {
+
     const state = states[Math.floor(Math.random() * states.length)];
 
     stateOverlay.src = state.src;
@@ -70,15 +88,22 @@ card.addEventListener("click", () => {
     stateOverlay.style.display = "block";
 
     renderConsole(state.name);
+
   }, 900);
 });
 
-// ==============================
-// CONSOLE RENDER
-// ==============================
+/* =========================
+   CONSOLE RENDER
+========================= */
 
 function renderConsole(stateName) {
-  const systemEntry = oracleData.find(row =>
+
+  if (!systemData.length) {
+    consoleOutput.textContent = "DATA NOT READY";
+    return;
+  }
+
+  const systemEntry = systemData.find(row =>
     row.Archetype === ARCHETYPE &&
     row.State === stateName &&
     row.Stage === STAGE
@@ -92,44 +117,57 @@ NO DATA AVAILABLE`;
     return;
   }
 
-  // Default output (normal mode)
-  let output =
+  if (!oracleMode) {
+
+    // NORMAL MODE
+    typeText(
 `[${systemEntry["Hex Code"]}]
 ${ARCHETYPE} (${stateName})
 
-${systemEntry.Meaning}`;
-
-  // Oracle-query enhancement (adds interpretation, does NOT replace)
-  if (ORACLE_MODE === "query" && oracleTranslated.length) {
-    const translatedEntry = oracleTranslated.find(row =>
-      row.Archetype === ARCHETYPE &&
-      row.State === stateName &&
-      row.Stage === STAGE
+${systemEntry.Meaning}`
     );
 
-    if (translatedEntry) {
-      output += `
+  } else {
 
-— ORACLE INTERPRETATION —
+    // ORACLE MODE
+    const translatedEntry = translatedData.find(row =>
+      row["Hex Code"] === systemEntry["Hex Code"]
+    );
 
-${translatedEntry.Meaning}`;
-    }
+    const translatedMeaning = translatedEntry
+      ? translatedEntry.Meaning
+      : "NO TRANSLATED DATA AVAILABLE";
+
+    typeText(
+`[${systemEntry["Hex Code"]}]
+${ARCHETYPE} (${stateName})
+
+SYSTEM:
+${systemEntry.Meaning}
+
+ORACLE:
+${translatedMeaning}`
+    );
   }
-
-  typeText(output);
 }
 
-// ==============================
-// TYPE EFFECT
-// ==============================
+/* =========================
+   TYPING EFFECT
+========================= */
 
 function typeText(text) {
+
   consoleOutput.textContent = "";
+
   let i = 0;
 
   const interval = setInterval(() => {
     consoleOutput.textContent += text[i];
     i++;
-    if (i >= text.length) clearInterval(interval);
+
+    if (i >= text.length) {
+      clearInterval(interval);
+    }
+
   }, 18);
 }

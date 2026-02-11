@@ -2,55 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XIII.NEXUS — ORACLE QUERY</title>
+  <title>XIII.NEXUS — Oracle Query</title>
 
   <link rel="stylesheet" href="../styles/oracle-query.css">
+  <script>
+    // Enable oracle mode for this session
+  sessionStorage.setItem("oracleMode", "true");
+  </script>
   <script src="../scripts/oracle-query.js" defer></script>
 </head>
 
 <body>
 
-  <div class="scene">
+  <div class="layout">
 
-    <!-- CENTER CARD -->
-    <div class="card" id="card">
-      <div class="card-shell">
+    <!-- CARD AREA -->
+    <div class="card-area">
 
-        <!-- BACK -->
-        <div class="card-face card-back">
-          <img src="../assets/images/card - back.png" alt="Card Back">
-        </div>
+      <div class="card" id="card">
+        <div class="card-shell">
 
-        <!-- FRONT -->
-        <div class="card-face card-front">
+          <div class="card-face card-back">
+            <img src="../assets/images/card - back.png" alt="Card Back">
+          </div>
 
-           <!-- injected dynamically after scan -->
-          <img class="card-gif"
-           id="cardImage"
-           alt=""
-           style="display:none;">
-
-          <!-- STATE OVERLAY -->
-          <img class="state-overlay" id="stateOverlay" alt="State Overlay">
+          <div class="card-face card-front">
+            <img class="card-gif" alt="Card Face">
+            <img class="state-overlay" id="stateOverlay" alt="State Overlay">
+          </div>
 
         </div>
-
       </div>
+
+      <button id="simulateScan">Simulate Scan</button>
+
     </div>
 
-    <!-- RIGHT SIDE CONSOLES -->
-    <div class="oracle-panels">
+    <!-- CONSOLE AREA -->
+    <div class="console-area">
 
-      <!-- ORACLE INTERPRETATION -->
-      <div class="oracle-panel oracle-panel--oracle">
-        <div class="panel-title" id="oracleTitle">ORACLE</div>
-        <div class="oracle-console" id="oracleConsole"></div>
+      <div class="console-box">
+        <div class="console-title">SYSTEM OUTPUT</div>
+        <div class="console-output" id="systemConsole"></div>
       </div>
 
-      <!-- SYSTEM CONTEXT -->
-      <div class="oracle-panel oracle-panel--system">
-        <div class="panel-title">SYSTEM</div>
-        <div class="oracle-console" id="systemConsole"></div>
+      <div class="console-box">
+        <div class="console-title">ORACLE TRANSLATION</div>
+        <div class="console-output" id="oracleConsole"></div>
       </div>
 
     </div>

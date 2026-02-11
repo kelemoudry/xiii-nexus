@@ -1,89 +1,53 @@
-/* =========================
-   GLOBAL LAYOUT
-   ========================= */
+/* PAGE LAYOUT */
 
 body {
   margin: 0;
   background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: sans-serif;
-  color: #8affff;
-}
-
-/* Wrapper for card + console */
-.card-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Console positioned relative to card center */
-.console {
-  position: absolute;
-  left: 70%;      /* moves console to the right of the card */
-  top: 50%;        /* vertical center of card */
-  transform: translateY(-50%);
-  width: 300px;    /* adjust as needed */
   color: #0ff;
   font-family: monospace;
-  white-space: pre-wrap;
+  height: 100vh;
+  position: relative;
 }
-/* Card container */
+
+/* CENTER CARD ABSOLUTELY */
+
 .card {
   width: 300px;
   height: 500px;
   perspective: 1200px;
   cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+/* CARD SHELL */
 
 .card-shell {
   width: 100%;
   height: 100%;
   position: relative;
-  border-radius: 8px;
+  border-radius: 14px;
   transform-style: preserve-3d;
-  transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.9s cubic-bezier(0.4,0.2,0.2,1);
 }
 
 .card.flipped .card-shell {
   transform: rotateY(180deg);
 }
 
-/* =========================
-   CARD FACES
-   ========================= */
+/* CARD FACES */
 
 .card-face {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border-radius: 8px;
-  overflow: visible;
+  border-radius: 14px;
 }
 
-.card-back {
-  background: #000;
-}
-
-.card-back img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-front {
-  transform: rotateY(180deg);
-  background: #000;
-}
-
-/* =========================
-   CARD IMAGES
-   ========================= */
-
+.card-back img,
 .card-gif {
   width: 100%;
   height: 100%;
@@ -91,20 +55,20 @@ body {
   border-radius: 14px;
 }
 
-/* =========================
-   STATE OVERLAY
-   ========================= */
+.card-front {
+  transform: rotateY(180deg);
+}
+
+/* STATE OVERLAY */
 
 .state-overlay {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
   object-fit: fill;
   opacity: 0;
   transition: opacity 0.4s ease;
-
   pointer-events: none;
 }
 
@@ -112,12 +76,12 @@ body {
   opacity: 1;
 }
 
-/* === STATE ANIMATIONS === */
+/* =========================
+   STATE ANIMATIONS
+   ========================= */
 
-/* Stable: calm pulse */
 .state-overlay.stable.active {
   animation: pulseGlow 2s infinite alternate;
-  opacity: 1;
 }
 
 @keyframes pulseGlow {
@@ -125,21 +89,17 @@ body {
   100% { filter: drop-shadow(0 0 12px cyan); }
 }
 
-/* Redundant: gentle drift */
 .state-overlay.redundant.active {
   animation: drift 3s infinite ease-in-out;
-  opacity: 1;
 }
 
 @keyframes drift {
-  0%, 100% { transform: translateY(0px); }
+  0%,100% { transform: translateY(0px); }
   50% { transform: translateY(-3px); }
 }
 
-/* Deprecated: slow scale fade */
 .state-overlay.deprecated.active {
   animation: slowScale 2s infinite alternate;
-  opacity: 1;
 }
 
 @keyframes slowScale {
@@ -147,10 +107,8 @@ body {
   100% { transform: scale(1); }
 }
 
-/* Elevated: bright pulse + slight wiggle */
 .state-overlay.elevated.active {
   animation: pulseGlow 1.5s infinite alternate, wiggle 2s infinite ease-in-out;
-  opacity: 1;
 }
 
 @keyframes wiggle {
@@ -160,10 +118,8 @@ body {
   75% { transform: rotate(1deg); }
 }
 
-/* Corrupted: glitchy flicker */
 .state-overlay.corrupted.active {
   animation: flicker 0.8s infinite;
-  opacity: 1;
 }
 
 @keyframes flicker {
@@ -171,10 +127,8 @@ body {
   50% { filter: brightness(1.4) drop-shadow(0 0 8px red); }
 }
 
-/* Experimental: drift + slight rotation + hue shift */
 .state-overlay.experimental.active {
   animation: drift 3s infinite ease-in-out, rotateHue 4s infinite linear;
-  opacity: 1;
 }
 
 @keyframes rotateHue {
@@ -182,20 +136,20 @@ body {
   100% { filter: hue-rotate(360deg); }
 }
 
-/* =========================
-   CONSOLE SCANLINES (SUBTLE)
-   ========================= */
+/* CONSOLE ON RIGHT */
 
-.console::before {
-  content: "";
+.console {
   position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 255, 255, 0.03),
-    rgba(0, 255, 255, 0.03) 1px,
-    transparent 2px,
-    transparent 4px
-  );
-  pointer-events: none;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  border: 1px solid #0ff;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.console-output {
+  white-space: pre-wrap;
+  line-height: 1.5;
 }

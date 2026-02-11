@@ -1,159 +1,91 @@
-/* ============================
-   ORACLE QUERY SYSTEM
-   ============================ */
-
-let systemOracle = [];
-let translatedOracle = [];
-let oracleReady = false;
-
-/* ============================
-   DOM REFERENCES
-   ============================ */
-
+const card = document.getElementById("card");
+const stateOverlay = document.getElementById("stateOverlay");
+const systemConsole = document.getElementById("systemConsole");
 const oracleConsole = document.getElementById("oracleConsole");
-const oracleTitle   = document.getElementById("oracleTitle");
+const simulateBtn = document.getElementById("simulateScan");
 
-/* ============================
-   LOAD ORACLE DATA
-   ============================ */
+const cardGif = card.querySelector(".card-gif");
 
+const states = [
+  { name: "STABLE", src: "../assets/images/state - stable.png", class: "stable" },
+  { name: "REDUNDANT", src: "../assets/images/state - redundant.png", class: "redundant" },
+  { name: "DEPRECATED", src: "../assets/images/state - deprecated.png", class: "deprecated" },
+  { name: "ELEVATED", src: "../assets/images/state - elevated.png", class: "elevated" },
+  { name: "CORRUPTED", src: "../assets/images/state - corrupted.png", class: "corrupted" },
+  { name: "EXPERIMENTAL", src: "../assets/images/state - experimental.png", class: "experimental" }
+];
+
+let oracleData = [];
+let translatedData = [];
+let hasFlipped = false;
+
+/* LOAD BOTH JSON FILES */
 Promise.all([
-  fetch("../data/oracle.json").then(res => res.json()),
-  fetch("../data/translated.json").then(res => res.json())
-])
-.then(([systemData, translatedData]) => {
-  systemOracle = systemData;
-  translatedOracle = translatedData;
-  oracleReady = true;
-
-  printOracleLine("ORACLE QUERY INITIALIZED");
-  printOracleLine("AWAITING ARCHETYPE INPUT…");
-})
-.catch(err => {
-  console.error("Oracle load failure:", err);
-  printOracleLine("ORACLE DATA CORRUPTED");
+  fetch("../data/oracle.json").then(r => r.json()),
+  fetch("../data/translated.json").then(r => r.json())
+]).then(([systemData, oracleDataTranslated]) => {
+  oracleData = systemData;
+  translatedData = oracleDataTranslated;
+}).catch(err => {
+  console.error("Oracle data load failure", err);
 });
 
-/* ============================
-   CORE LOOKUP FUNCTION
-   ============================ */
+/* SIMULATED NFC SCAN */
+simulateBtn.addEventListener("click", () => {
 
-function getOracleMeaning(archetype, state) {
-  if (!oracleReady) {
-    return null;
-  }
+  if (hasFlipped) return;
+  hasFlipped = true;
 
-  // SYSTEM MEANING (PROCESS STAGE)
-  const systemEntry = systemOracle.find(e =>
-    e.Archetype === archetype &&
-    e.State === state &&
-    e.Stage.toLowerCase() === "process"
+  const ARCHETYPE = "BOOT"; // Later: parsed from scanned URL
+  const STAGE = "Process";
+
+  const state = states[Math.floor(Math.random() * states.length)];
+
+  cardGif.src = `../assets/gifs/card - ${ARCHETYPE.toLowerCase()}.gif`;
+
+  card.classList.add("flipped");
+
+  setTimeout(() => {
+    stateOverlay.src = state.src;
+    stateOverlay.className = `state-overlay active ${state.class}`;
+
+    renderMeaning(ARCHETYPE, state.name, STAGE);
+  }, 900);
+
+});
+
+/* RENDER MEANINGS */
+function renderMeaning(archetype, stateName, stage) {
+
+  const systemEntry = oracleData.find(row =>
+    row.Archetype === archetype &&
+    row.State === stateName &&
+    row.Stage === stage
   );
 
-  // TRANSLATED MEANING (PROCESS STAGE)
-  const translatedEntry = translatedOracle.find(e =>
-    e.Archetype === archetype &&
-    e.State === state &&
-    e.Stage.toLowerCase() === "process"
+  const oracleEntry = translatedData.find(row =>
+    row.Archetype === archetype &&
+    row.State === stateName &&
+    row.Stage === stage
   );
 
-  return {
-    archetype,
-    state,
-    hex: systemEntry?.["Hex Code"] || "?? ?? ??",
-    systemMeaning: systemEntry?.Meaning || "NO SYSTEM MEANING FOUND",
-    translatedMeaning: translatedEntry?.Meaning || "NO TRANSLATION FOUND"
-  };
+  typeText(systemConsole,
+`[${systemEntry?.["Hex Code"] || "??-??-??"}]
+
+${systemEntry?.Meaning || "NO SYSTEM DATA"}`);
+
+  typeText(oracleConsole,
+`${oracleEntry?.Meaning || "NO ORACLE DATA"}`);
 }
 
-/* ============================
-   ORACLE QUERY ENTRY POINT
-   ============================ */
-/*
-   This function is called when:
-   - an NFC card is scanned
-   - OR a card is clicked in dev mode
-*/
+/* TYPE EFFECT */
+function typeText(element, text) {
+  element.textContent = "";
+  let i = 0;
 
-function runOracleQuery(archetype, state) {
-  const result = getOracleMeaning(archetype, state);
-
-  if (!result) {
-    printOracleLine("QUERY FAILED");
-    return;
-  }
-
-  clearOracle();
-
-  oracleTitle.innerText = `${result.archetype} — ${result.state}`;
-
-  // Oracle-style output
-  typeOracleBlock([
-    `HEX ${result.hex}`,
-    ``,
-    result.translatedMeaning,
-    ``,
-    `— SYSTEM CONTEXT —`,
-    result.systemMeaning
-  ]);
+  const interval = setInterval(() => {
+    element.textContent += text[i];
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, 15);
 }
-
-/* ============================
-   ORACLE CONSOLE EFFECTS
-   ============================ */
-
-function clearOracle() {
-  oracleConsole.innerHTML = "";
-}
-
-function printOracleLine(text) {
-  const line = document.createElement("div");
-  line.className = "oracle-line";
-  line.textContent = text;
-  oracleConsole.appendChild(line);
-  oracleConsole.scrollTop = oracleConsole.scrollHeight;
-}
-
-function typeOracleBlock(lines, speed = 22) {
-  let lineIndex = 0;
-  let charIndex = 0;
-
-  function typeNextChar() {
-    if (lineIndex >= lines.length) return;
-
-    if (!oracleConsole.lastChild || oracleConsole.lastChild.dataset.complete === "true") {
-      const line = document.createElement("div");
-      line.className = "oracle-line";
-      line.dataset.complete = "false";
-      oracleConsole.appendChild(line);
-    }
-
-    const currentLine = oracleConsole.lastChild;
-    currentLine.textContent += lines[lineIndex][charIndex] || "";
-
-    charIndex++;
-
-    if (charIndex >= lines[lineIndex].length) {
-      currentLine.dataset.complete = "true";
-      lineIndex++;
-      charIndex = 0;
-    }
-
-    oracleConsole.scrollTop = oracleConsole.scrollHeight;
-    setTimeout(typeNextChar, speed);
-  }
-
-  typeNextChar();
-}
-
-/* ============================
-   DEV MODE (REMOVE LATER)
-   ============================ */
-/*
-   Temporary testing hook.
-   Call from console or click handler.
-*/
-
-window.devOracleQuery = function () {
-  runOracleQuery("BOOT", "STABLE");
-};

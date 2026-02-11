@@ -5,43 +5,44 @@
   <title>XIII.NEXUS — BOOT</title>
 
   <link rel="stylesheet" href="../styles/card.css">
-  <script src="../scripts/card.js" defer></script>
 </head>
 
-<body>
+<body data-archetype="BOOT">
 
-  <!-- FLEX WRAPPER -->
-  <div class="card-console-wrapper">
+  <!-- CARD -->
+  <div class="card" id="card">
+    <div class="card-shell">
 
-    <!-- CARD -->
-    <div class="card" id="card">
-      <div class="card-shell">
+      <!-- BACK -->
+      <div class="card-face card-back">
+        <img src="../assets/images/card - back.png" alt="Card Back">
+      </div>
 
-        <!-- BACK -->
-        <div class="card-face card-back">
-          <img src="../assets/images/card - back.png" alt="Card Back">
-        </div>
+      <!-- FRONT -->
+      <div class="card-face card-front">
 
-        <!-- FRONT -->
-        <div class="card-face card-front">
+        <!-- CARD FACE GIF -->
+        <img class="card-gif" 
+             src="../assets/gifs/card - boot.gif" 
+             alt="BOOT">
 
-          <!-- CARD FACE -->
-          <img class="card-gif" src="../assets/gifs/card - boot.gif" alt="BOOT">
-
-          <!-- STATE OVERLAY -->
-          <img class="state-overlay" id="stateOverlay" alt="State Overlay">
-
-        </div>
+        <!-- STATE OVERLAY -->
+        <img class="state-overlay" 
+             id="stateOverlay" 
+             alt="State Overlay">
 
       </div>
-    </div>
 
-    <!-- CONSOLE (PROCESS-ONLY INTERPRETATION) -->
- <div class="console">
+    </div>
+  </div>
+
+  <!-- CONSOLE -->
+  <div class="console">
     <div class="console-output"></div>
   </div>
 
-  </div>
+  <!-- CARD LOGIC -->
+  <script src="../scripts/card.js"></script>
 
 </body>
 </html>
