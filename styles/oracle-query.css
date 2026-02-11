@@ -1,24 +1,33 @@
-/* General page layout */
+/* ===========================
+   PAGE LAYOUT
+=========================== */
 body {
   margin: 0;
   background: black;
+  font-family: monospace;
+  color: #0ff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: monospace;
-  color: #0ff;
 }
 
-/* Container */
-.oracle-container {
+.page-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 50px;
+  gap: 40px;
 }
 
-/* Card */
+/* ===========================
+   CARD
+=========================== */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   width: 300px;
   height: 500px;
@@ -32,7 +41,7 @@ body {
   position: relative;
   border-radius: 14px;
   transform-style: preserve-3d;
-  transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.9s cubic-bezier(0.4,0.2,0.2,1);
 }
 
 .card.flipped .card-shell {
@@ -56,6 +65,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: fill;
+  border-radius: 14px;
 }
 
 .card-front {
@@ -78,30 +88,55 @@ body {
   opacity: 1;
 }
 
-/* Console */
-.console {
+/* ===========================
+   PROMPT
+=========================== */
+.prompt {
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ===========================
+   CONSOLE
+=========================== */
+.console-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.console {
   width: 400px;
-  max-width: 50vw;
+  max-height: 500px;
+  background: #000;
+  border: 1px solid #0ff;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.console-label {
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .console-output {
-  background: #000;
-  color: #0ff;
-  font-family: monospace;
-  padding: 10px;
-  border: 1px solid #0ff;
-  height: 200px;
-  overflow-y: auto;
   white-space: pre-wrap;
+  line-height: 1.3;
 }
 
-/* Prompt */
-.prompt {
-  position: absolute;
-  bottom: 50px;
-  text-align: center;
-  font-size: 1.5rem;
-}
+/* ===========================
+   STATE ANIMATIONS
+=========================== */
+@keyframes pulseGlow { 0% { filter: drop-shadow(0 0 4px cyan); } 100% { filter: drop-shadow(0 0 12px cyan); } }
+@keyframes drift { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-3px); } }
+@keyframes slowScale { 0% { transform: scale(0.95); } 100% { transform: scale(1); } }
+@keyframes wiggle { 0%,100% { transform: rotate(0deg); } 25% { transform: rotate(2deg); } 50% { transform: rotate(-2deg); } 75% { transform: rotate(1deg); } }
+@keyframes flicker { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.4) drop-shadow(0 0 8px red); } }
+@keyframes rotateHue { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
+
+.state-overlay.stable.active { animation: pulseGlow 2s infinite alternate; }
+.state-overlay.redundant.active { animation: drift 3s infinite ease-in-out; }
+.state-overlay.deprecated.active { animation: slowScale 2s infinite alternate; }
+.state-overlay.elevated.active { animation: pulseGlow 1.5s infinite alternate, wiggle 2s infinite ease-in-out; }
+.state-overlay.corrupted.active { animation: flicker 0.8s infinite; }
+.state-overlay.experimental.active { animation: drift 3s infinite ease-in-out, rotateHue 4s infinite linear; }

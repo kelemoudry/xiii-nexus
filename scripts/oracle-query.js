@@ -24,8 +24,8 @@ const STATES = [
 // ==============================
 // ORACLE DATA
 // ==============================
-let systemOracle = [];      // system meanings
-let translatedOracle = [];  // translated/oracle meanings
+let systemOracle = [];
+let translatedOracle = [];
 
 Promise.all([
   fetch("../data/oracle.json").then(r => r.json()).then(d => systemOracle = d),
@@ -106,22 +106,43 @@ function typeText(element, text) {
 }
 
 // ==============================
-// SIMULATE CARD SCAN (for now)
+// NFC LISTENER
 // ==============================
-// In production, replace this with NFC scan listener
-function simulateScan() {
-  // pick random archetype
-  const archetypes = [
-    "BOOT","SIGNAL","PROCESS","CACHE","FIREWALL",
-    "ROOT","AUTHORITY","SYNC","ISOLATE",
-    "OVERFLOW","PATCH","LOOP","TERMINATE"
-  ];
+async function startNFCListener() {
+  if ("NDEFReader" in window) {
+    try {
+      const ndef = new NDEFReader();
+      await ndef.scan();
+      console.log("NFC listener active. Waiting for card scan...");
+      prompt.textContent = "Scan your card";
 
-  const archetype = archetypes[Math.floor(Math.random() * archetypes.length)];
-  const stage = "Process"; // could vary based on context
+      ndef.onreading = event => {
+        for (const record of event.message.records) {
+          if (record.recordType === "url" || record.recordType === "text") {
+            const value = record.data || new TextDecoder().decode(record.data);
+            console.log("Card scanned:", value);
 
-  revealCard(archetype, stage);
+            // Extract archetype from URL
+            const parts = value.split("/");
+            const archetype = parts[parts.length - 1].toUpperCase();
+
+            // For single-card query, stage is always "Process"
+            revealCard(archetype, "Process");
+          }
+        }
+      };
+
+    } catch (err) {
+      console.error("NFC scan failed:", err);
+      prompt.textContent = "NFC not available on this device.";
+    }
+  } else {
+    console.warn("Web NFC not supported on this device/browser.");
+    prompt.textContent = "Web NFC not supported.";
+  }
 }
 
-// Wait 1s and simulate a scan for testing
-setTimeout(simulateScan, 1000);
+// ==============================
+// START LISTENER ON PAGE LOAD
+// ==============================
+window.addEventListener("load", startNFCListener);

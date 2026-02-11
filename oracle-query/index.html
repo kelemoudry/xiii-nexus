@@ -4,45 +4,50 @@
   <meta charset="UTF-8">
   <title>XIII.NEXUS — Oracle Query</title>
   <link rel="stylesheet" href="../styles/oracle-query.css">
-  <script>
-    // Enable oracle mode for this session
-  sessionStorage.setItem("oracleMode", "true");
-  </script>
+    <script>
+      // Enable oracle mode for this session
+    sessionStorage.setItem("oracleMode", "true");
+    </script>
   <script src="../scripts/oracle-query.js" defer></script>
 </head>
 <body>
 
-  <div class="oracle-container">
+  <div class="page-container">
 
-    <!-- Card Display -->
-    <div class="card" id="card">
-      <div class="card-shell">
+    <!-- CARD CENTER -->
+    <div class="card-container">
+      <div class="card" id="card">
+        <div class="card-shell">
 
-        <!-- Back -->
-        <div class="card-face card-back">
-          <img src="../assets/images/card - back.png" alt="Card Back">
+          <!-- BACK -->
+          <div class="card-face card-back">
+            <img src="../assets/images/card - back.png" alt="Card Back">
+          </div>
+
+          <!-- FRONT -->
+          <div class="card-face card-front">
+            <img class="card-gif" alt="Card Face">
+            <img class="state-overlay" id="stateOverlay" alt="State Overlay">
+          </div>
+
         </div>
-
-        <!-- Front -->
-        <div class="card-face card-front">
-          <img class="card-gif" alt="Card Face">
-          <img class="state-overlay" id="stateOverlay" alt="State Overlay">
-        </div>
-
       </div>
+      <div class="prompt">Scan card</div>
     </div>
 
-    <!-- Prompt -->
-    <div class="prompt">SCAN CARD</div>
-
-    <!-- Console Output -->
-    <div class="console">
-      <div class="console-output console-system"></div>
-      <div class="console-output console-oracle"></div>
+    <!-- CONSOLE BOXES -->
+    <div class="console-container">
+      <div class="console">
+        <div class="console-label">SYSTEM</div>
+        <div class="console-output console-system"></div>
+      </div>
+      <div class="console">
+        <div class="console-label">ORACLE</div>
+        <div class="console-output console-oracle"></div>
+      </div>
     </div>
 
   </div>
 
 </body>
 </html>
-
