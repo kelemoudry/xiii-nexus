@@ -1,5 +1,5 @@
 // ==============================
-// SYSTEM FLOW JS
+// SYSTEM FLOW JS (HARDENED)
 // ==============================
 
 const cards = [
@@ -26,17 +26,24 @@ const consoleOutput = document.querySelector(".console-output");
 let step = 0;
 let availableCards = [...cards];
 let oracleLookup = {};
+let dataReady = false;
+
+// ==============================
+// BASE PATH (GitHub Safe)
+// ==============================
+
+const BASE_PATH = window.location.hostname.includes("github.io")
+  ? "/xiii-nexus"   // 🔥 CHANGE THIS
+  : "";
 
 // ==============================
 // HELPER FUNCTIONS
 // ==============================
 
-// Random array item
 function randomFrom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-// Typewriter effect
 function typeWriter(text, element, delay = 20) {
   let i = 0;
   function type() {
@@ -49,7 +56,6 @@ function typeWriter(text, element, delay = 20) {
   type();
 }
 
-// Write line to console with typewriter
 function writeToConsole(text) {
   const line = document.createElement("div");
   consoleOutput.appendChild(line);
@@ -57,28 +63,47 @@ function writeToConsole(text) {
 }
 
 // ==============================
-// LOAD ORACLE
+// LOAD ORACLE (SAFE)
 // ==============================
 
-fetch("../data/oracle.json")
-  .then(res => {
+async function loadOracle() {
+
+  try {
+
+    const res = await fetch(`${BASE_PATH}/data/oracle.json`);
+
     if (!res.ok) throw new Error("Oracle fetch failed");
-    return res.json();
-  })
-  .then(data => {
-    // Build lookup: STAGE|ARCHETYPE|STATE => { hex, meaning }
+
+    const data = await res.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error("oracle.json is not an array");
+    }
+
     data.forEach(item => {
-      const key = `${item.Stage.toUpperCase()}|${item.Archetype.toUpperCase()}|${item.State.toUpperCase()}`;
+
+      const key = `${item.Stage?.toUpperCase()}|${item.Archetype?.toUpperCase()}|${item.State?.toUpperCase()}`;
+
       oracleLookup[key] = {
         hex: item["Hex Code"],
         meaning: item.Meaning
       };
+
     });
-    console.log("Oracle lookup ready", oracleLookup);
-  })
-  .catch(err => {
+
+    dataReady = true;
+
+    console.log("Oracle lookup ready");
+    console.log("Total keys:", Object.keys(oracleLookup).length);
+
+  } catch (err) {
+
     console.error("Oracle failed to load:", err);
-  });
+    prompt.textContent = "Oracle data failed to load.";
+  }
+}
+
+loadOracle();
 
 // ==============================
 // BUILD CARD DOM
@@ -103,8 +128,13 @@ slots.forEach(slot => {
 // ==============================
 
 document.body.addEventListener("click", () => {
-  if (step > 2) return; // All slots filled
-  if (!oracleLookup) return;
+
+  if (!dataReady) {
+    prompt.textContent = "Loading oracle data...";
+    return;
+  }
+
+  if (step > 2) return;
 
   const slot = slots[step];
   const gif = slot.querySelector(".card-gif");
@@ -112,21 +142,20 @@ document.body.addEventListener("click", () => {
 
   // Pick archetype (no repeats)
   const pickIndex = Math.floor(Math.random() * availableCards.length);
-  const archetype = availableCards.splice(pickIndex, 1)[0];
-  const archetypeName = archetype.split("-")[1].toUpperCase();
+  const archetypeFull = availableCards.splice(pickIndex, 1)[0];
+
+  const archetypeName = archetypeFull.split("-")[1]?.toUpperCase();
 
   // Pick state
   const state = randomFrom(states);
   const stateName = state.name.toUpperCase();
 
-  // Set card GIF and state overlay
+  // Set card visuals
   gif.src = `../assets/gifs/card - ${archetypeName}.gif`;
   stateOverlay.src = `../assets/images/${state.file}`;
 
-  // Flip card
   slot.classList.add("flipped");
 
-  // Reveal state overlay after flip
   setTimeout(() => {
     stateOverlay.className = `state-overlay active ${stateName.toLowerCase()}`;
   }, 1000);
@@ -134,19 +163,22 @@ document.body.addEventListener("click", () => {
   // ==============================
   // LOOKUP ORACLE DATA
   // ==============================
+
   const stageKey = labels[step].toUpperCase();
   const lookupKey = `${stageKey}|${archetypeName}|${stateName}`;
+
+  console.log("Looking up:", lookupKey);
+
   const result = oracleLookup[lookupKey];
 
   const hex = result ? result.hex : "??-??-??";
   const meaning = result ? result.meaning : "NO DATA AVAILABLE";
 
-  // Write to console
   writeToConsole(`[${hex}] ${stageKey} :: ${archetypeName} (${stateName})`);
   writeToConsole(meaning);
 
-  // Update prompt
   step++;
+
   if (step < 3) {
     prompt.textContent = `Click to draw ${labels[step]}`;
   } else {
