@@ -3,9 +3,9 @@
 // ==============================
 
 const cards = [
-  "1-BOOT","2-SIGNAL","3-PROCESS","4-CACHE","5-FIREWALL",
-  "6-ROOT","7-AUTHORITY","8-SYNC","9-ISOLATE",
-  "10-OVERFLOW","11-PATCH","12-LOOP","13-TERMINATE"
+  "1-boot","2-signal","3-process","4-cache","5-firewall",
+  "6-root","7-authority","8-sync","9-isolate",
+  "10-overflow","11-patch","12-loop","13-terminate"
 ];
 
 const states = [
@@ -153,3 +153,4 @@ document.body.addEventListener("click", () => {
     prompt.textContent = "System Flow complete.";
   }
 });
+
