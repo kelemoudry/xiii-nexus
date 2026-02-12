@@ -113,7 +113,7 @@ document.body.addEventListener("click", () => {
   // Pick archetype (no repeats)
   const pickIndex = Math.floor(Math.random() * availableCards.length);
   const archetype = availableCards.splice(pickIndex, 1)[0];
-  const archetypeName = archetype.split("-")[1].toUpperCase();
+  const archetypeName = archetype.split("-")[1];
 
   // Pick state
   const state = randomFrom(states);
@@ -153,4 +153,5 @@ document.body.addEventListener("click", () => {
     prompt.textContent = "System Flow complete.";
   }
 });
+
 
