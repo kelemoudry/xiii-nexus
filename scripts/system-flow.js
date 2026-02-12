@@ -66,9 +66,9 @@ fetch("../data/oracle.json")
     return res.json();
   })
   .then(data => {
-    // Build lookup: STAGE|ARCHETYPE|STATE => { hex, meaning }
+    // Build lookup: Stage|Archetype|State => { hex, meaning }
     data.forEach(item => {
-      const key = `${item.Stage.toUpperCase()}|${item.Archetype.toUpperCase()}|${item.State.toUpperCase()}`;
+      const key = `${item.Stage}|${item.Archetype}|${item.State}`;
       oracleLookup[key] = {
         hex: item["Hex Code"],
         meaning: item.Meaning
@@ -134,7 +134,7 @@ document.body.addEventListener("click", () => {
   // ==============================
   // LOOKUP ORACLE DATA
   // ==============================
-  const stageKey = labels[step].toUpperCase();
+  const stageKey = labels[step];
   const lookupKey = `${stageKey}|${archetypeName}|${stateName}`;
   const result = oracleLookup[lookupKey];
 
@@ -153,6 +153,7 @@ document.body.addEventListener("click", () => {
     prompt.textContent = "System Flow complete.";
   }
 });
+
 
 
 
