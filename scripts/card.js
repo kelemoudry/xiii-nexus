@@ -6,10 +6,11 @@ const card = document.getElementById("card");
 const stateOverlay = document.getElementById("stateOverlay");
 const consoleOutput = document.querySelector(".console-output");
 
-const ARCHETYPE = document.body.dataset.archetype;
+const ARCHETYPE = document.body.dataset.archetype?.toUpperCase();
 const STAGE = "Process";
 
 let hasFlipped = false;
+let dataReady = false;
 
 /* =========================
    STATE DEFINITIONS
@@ -27,46 +28,64 @@ const states = [
 /* =========================
    ORACLE MODE
 ========================= */
+
 const oracleMode = sessionStorage.getItem("oracleMode") === "true";
 
 let systemData = [];
 let translatedData = [];
 
 /* =========================
+   BASE PATH (GitHub Safe)
+========================= */
+
+const BASE_PATH = window.location.hostname.includes("github.io")
+  ? "/xiii-nexus"   // 🔥 CHANGE THIS
+  : "";
+
+/* =========================
    LOAD DATA
 ========================= */
 
-if (!oracleMode) {
+async function loadData() {
 
-  fetch("../data/oracle.json")
-    .then(res => res.json())
-    .then(data => {
-      systemData = data;
-    })
-    .catch(err => {
-      console.error(err);
-      if (consoleOutput) {
-        consoleOutput.textContent = "SYSTEM DATA LOAD FAILURE";
-      }
-    });
+  try {
 
-} else {
+    const systemResponse = await fetch(`${BASE_PATH}/data/oracle.json`);
+    const systemJson = await systemResponse.json();
 
-  Promise.all([
-    fetch("../data/oracle.json").then(res => res.json()),
-    fetch("../data/translated.json").then(res => res.json())
-  ])
-  .then(([system, translated]) => {
-    systemData = system;
-    translatedData = translated;
-  })
-  .catch(err => {
-    console.error(err);
-    if (consoleOutput) {
-      consoleOutput.textContent = "ORACLE DATA LOAD FAILURE";
+    if (!Array.isArray(systemJson)) {
+      throw new Error("oracle.json is not an array.");
     }
-  });
+
+    systemData = systemJson;
+
+    if (oracleMode) {
+      try {
+        const translatedResponse = await fetch(`${BASE_PATH}/data/translated.json`);
+        translatedData = await translatedResponse.json();
+      } catch {
+        // fallback if filename is translate.json
+        const fallback = await fetch(`${BASE_PATH}/data/translate.json`);
+        translatedData = await fallback.json();
+      }
+    }
+
+    dataReady = true;
+
+    console.log("Data loaded successfully.");
+    console.log("System entries:", systemData.length);
+
+  } catch (err) {
+
+    console.error("DATA LOAD FAILURE:", err);
+
+    if (consoleOutput) {
+      consoleOutput.textContent = "DATA LOAD FAILURE";
+    }
+  }
 }
+
+loadData();
 
 /* =========================
    CARD CLICK
@@ -74,7 +93,13 @@ if (!oracleMode) {
 
 card.addEventListener("click", () => {
 
-  if (hasFlipped) return;
+  if (hasFlipped || !dataReady) {
+    if (!dataReady) {
+      consoleOutput.textContent = "LOADING DATA...";
+    }
+    return;
+  }
+
   hasFlipped = true;
 
   card.classList.add("flipped");
@@ -87,7 +112,7 @@ card.addEventListener("click", () => {
     stateOverlay.className = `state-overlay ${state.class} active`;
     stateOverlay.style.display = "block";
 
-    renderConsole(state.name);
+    renderConsole(state.name.toUpperCase());
 
   }, 900);
 });
@@ -98,28 +123,28 @@ card.addEventListener("click", () => {
 
 function renderConsole(stateName) {
 
-  if (!systemData.length) {
-    consoleOutput.textContent = "DATA NOT READY";
-    return;
-  }
+  console.log("Searching for:", ARCHETYPE, stateName, STAGE);
 
   const systemEntry = systemData.find(row =>
-    row.Archetype === ARCHETYPE &&
-    row.State === stateName &&
+    row.Archetype?.toUpperCase() === ARCHETYPE &&
+    row.State?.toUpperCase() === stateName &&
     row.Stage === STAGE
   );
 
   if (!systemEntry) {
+
+    console.warn("NO MATCH FOUND");
+
     consoleOutput.textContent =
 `[??-??-??]
 ${ARCHETYPE} (${stateName})
 NO DATA AVAILABLE`;
+
     return;
   }
 
   if (!oracleMode) {
 
-    // NORMAL MODE
     typeText(
 `[${systemEntry["Hex Code"]}]
 ${ARCHETYPE} (${stateName})
@@ -129,7 +154,6 @@ ${systemEntry.Meaning}`
 
   } else {
 
-    // ORACLE MODE
     const translatedEntry = translatedData.find(row =>
       row["Hex Code"] === systemEntry["Hex Code"]
     );
@@ -162,6 +186,7 @@ function typeText(text) {
   let i = 0;
 
   const interval = setInterval(() => {
+
     consoleOutput.textContent += text[i];
     i++;
 
