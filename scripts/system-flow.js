@@ -117,7 +117,7 @@ document.body.addEventListener("click", () => {
 
   // Pick state
   const state = randomFrom(states);
-  const stateName = state.name.toUpperCase();
+  const stateName = state.name;
 
   // Set card GIF and state overlay
   gif.src = `../assets/gifs/card - ${archetypeName}.gif`;
@@ -153,5 +153,6 @@ document.body.addEventListener("click", () => {
     prompt.textContent = "System Flow complete.";
   }
 });
+
 
 
