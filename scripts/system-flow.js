@@ -151,7 +151,7 @@ document.body.addEventListener("click", () => {
   const stateName = state.name.toUpperCase();
 
   // Set card visuals
-  gif.src = `../assets/gifs/card - ${archetypeName?.toLowercase()}.gif`;
+  gif.src = `../assets/gifs/card - ${archetypeName}.gif`;
   stateOverlay.src = `../assets/images/${state.file}`;
 
   slot.classList.add("flipped");
@@ -185,5 +185,6 @@ document.body.addEventListener("click", () => {
     prompt.textContent = "System Flow complete.";
   }
 });
+
 
 
