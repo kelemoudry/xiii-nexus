@@ -6,8 +6,8 @@ const card = document.getElementById("card");
 const stateOverlay = document.getElementById("stateOverlay");
 const consoleOutput = document.querySelector(".console-output");
 
-const ARCHETYPE = document.body.dataset.archetype;
-const STAGE = "Process";
+const Archetype = document.body.dataset.archetype;
+const Stage = "Process";
 
 let hasFlipped = false;
 
@@ -104,15 +104,15 @@ function renderConsole(stateName) {
   }
 
   const systemEntry = systemData.find(row =>
-    row.Archetype === ARCHETYPE &&
+    row.Archetype === Archetype &&
     row.State === stateName &&
-    row.Stage === STAGE
+    row.Stage === Stage
   );
 
   if (!systemEntry) {
     consoleOutput.textContent =
 `[??-??-??]
-${ARCHETYPE} (${stateName})
+${Archetype} (${stateName})
 NO DATA AVAILABLE`;
     return;
   }
@@ -122,7 +122,7 @@ NO DATA AVAILABLE`;
     // NORMAL MODE
     typeText(
 `[${systemEntry["Hex Code"]}]
-${ARCHETYPE} (${stateName})
+${Archetype} (${stateName})
 
 ${systemEntry.Meaning}`
     );
@@ -140,7 +140,7 @@ ${systemEntry.Meaning}`
 
     typeText(
 `[${systemEntry["Hex Code"]}]
-${ARCHETYPE} (${stateName})
+${Archetype} (${stateName})
 
 SYSTEM:
 ${systemEntry.Meaning}
@@ -171,3 +171,4 @@ function typeText(text) {
 
   }, 18);
 }
+
