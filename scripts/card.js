@@ -6,7 +6,7 @@ const card = document.getElementById("card");
 const stateOverlay = document.getElementById("stateOverlay");
 const consoleOutput = document.querySelector(".console-output");
 
-const Archetype = document.body.dataset.archetype;
+const ARCHETYPE = document.body.dataset.archetype;
 const Stage = "Process";
 
 let hasFlipped = false;
@@ -104,9 +104,9 @@ function renderConsole(stateName) {
   }
 
   const systemEntry = systemData.find(row =>
-    row.Archetype === Archetype &&
+    row.Archetype === ARCHETYPE &&
     row.State === stateName &&
-    row.Stage === Stage
+    row.Stage === STAGE
   );
 
   if (!systemEntry) {
@@ -171,4 +171,5 @@ function typeText(text) {
 
   }, 18);
 }
+
 
