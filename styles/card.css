@@ -1,29 +1,37 @@
-/* PAGE LAYOUT */
+/* =========================
+   GLOBAL PAGE LAYOUT
+   ========================= */
 
 body {
   margin: 0;
   background: black;
   color: #0ff;
   font-family: monospace;
-  height: 100vh;
-  position: relative;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* CENTER CARD ABSOLUTELY */
+/* =========================
+   CARD CONTAINER
+   ========================= */
 
 .card {
   width: 300px;
-  height: 500px;
+  aspect-ratio: 3 / 5;   /* Keeps tarot proportions */
   perspective: 1200px;
   cursor: pointer;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  flex-shrink: 0;
 }
 
-/* CARD SHELL */
+/* =========================
+   CARD SHELL (FLIP CORE)
+   ========================= */
 
 .card-shell {
   width: 100%;
@@ -38,13 +46,16 @@ body {
   transform: rotateY(180deg);
 }
 
-/* CARD FACES */
+/* =========================
+   CARD FACES
+   ========================= */
 
 .card-face {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
   border-radius: 14px;
+  overflow: hidden;
 }
 
 .card-back img,
@@ -59,7 +70,9 @@ body {
   transform: rotateY(180deg);
 }
 
-/* STATE OVERLAY */
+/* =========================
+   STATE OVERLAY
+   ========================= */
 
 .state-overlay {
   position: absolute;
@@ -136,20 +149,42 @@ body {
   100% { filter: hue-rotate(360deg); }
 }
 
-/* CONSOLE ON RIGHT */
+/* =========================
+   CONSOLE
+   ========================= */
 
 .console {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
   width: 320px;
   border: 1px solid #0ff;
   padding: 20px;
   min-height: 250px;
+  background: rgba(0, 20, 20, 0.6);
+  box-shadow: 0 0 10px #0ff;
 }
 
 .console-output {
   white-space: pre-wrap;
   line-height: 1.5;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 85vw;
+    max-width: 320px;
+  }
+
+  .console {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
+  }
 }
