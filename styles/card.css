@@ -140,10 +140,10 @@ body {
 
 .console {
   position: absolute;
-  right: 60px;
+  right: 5px;
   top: 50%;
   transform: translateY(-50%);
-  width: 400px;
+  width: 320px;
   border: 1px solid #0ff;
   padding: 20px;
   min-height: 250px;
