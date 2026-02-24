@@ -35,7 +35,7 @@ Promise.all([
 // ==============================
 // ORACLE MODE FLAG
 // ==============================
-let ORACLE_MODE = true;
+let ORACLE_MODE = localStorage.getItem("oracleMode") === "true";
 
 // ==============================
 // FLIP CARD & SHOW MEANINGS
@@ -123,8 +123,18 @@ async function startNFCListener() {
             console.log("Card scanned:", value);
 
             // Extract archetype from URL
-            const parts = value.split("/");
-            const archetype = parts[parts.length - 1].toUpperCase();
+           const parts = value.split("/");
+           const lastSegment = parts[parts.length - 1].toLowerCase();
+
+           // If Oracle Key scanned
+          if (lastSegment === "oracle-query") {
+          localStorage.setItem("oracleMode", "true");
+          ORACLE_MODE = true;
+          prompt.textContent = "Oracle Activated. Scan your card.";
+           return;
+           }
+
+            const archetype = lastSegment.toUpperCase();
 
             // For single-card query, stage is always "Process"
             revealCard(archetype, "Process");
@@ -146,3 +156,4 @@ async function startNFCListener() {
 // START LISTENER ON PAGE LOAD
 // ==============================
 window.addEventListener("load", startNFCListener);
+
