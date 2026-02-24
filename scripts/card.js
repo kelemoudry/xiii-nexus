@@ -29,7 +29,7 @@ const states = [
    ORACLE MODE
 ========================= */
 
-const oracleMode = sessionStorage.getItem("oracleMode") === "true";
+const oracleMode = localStorage.getItem("oracleMode") === "true";
 
 let systemData = [];
 let translatedData = [];
@@ -196,3 +196,4 @@ function typeText(text) {
 
   }, 18);
 }
+
