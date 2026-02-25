@@ -51,9 +51,9 @@ slots.forEach(slot => {
 // Reveal cards
 revealBtn.addEventListener("click", () => {
   const hexInputs = [
-    document.getElementById("HexInput0").value.trim().toUpperCase(),
-    document.getElementById("HexInput1").value.trim().toUpperCase(),
-    document.getElementById("HexInput2").value.trim().toUpperCase()
+    document.getElementById("hexInput0").value.trim().toUpperCase(),
+    document.getElementById("hexInput1").value.trim().toUpperCase(),
+    document.getElementById("hexInput2").value.trim().toUpperCase()
   ];
 
   systemConsole.textContent = "";
@@ -96,4 +96,5 @@ ${systemEntry.Meaning}`, systemConsole);
 ${translatedEntry ? translatedEntry.Meaning : "NO DATA AVAILABLE"}`, oracleConsole);
   });
 });
+
 
