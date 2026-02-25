@@ -2,40 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XIII.NEXUS — Oracle Flow</title>
+  <title>XIII.NEXUS — ORACLE FLOW</title>
   <link rel="stylesheet" href="../styles/oracle-flow.css">
+  <script src="../scripts/oracle-flow.js" defer></script>
 </head>
 <body>
 
-  <div class="container">
+  <div class="flow-container">
 
-    <!-- HEX INPUTS -->
-    <div class="hex-inputs">
-      <input type="text" id="inputHex" placeholder="Input Hex">
-      <input type="text" id="processHex" placeholder="Process Hex">
-      <input type="text" id="outputHex" placeholder="Output Hex">
-      <button id="revealBtn">Reveal Cards</button>
-    </div>
+    <!-- CARD SECTION -->
+    <div class="cards-section">
 
-    <!-- CARDS -->
-    <div class="cards">
-      <div class="card" data-position="input"></div>
-      <div class="card" data-position="process"></div>
-      <div class="card" data-position="output"></div>
+      <!-- Controls: Reveal button + hex inputs -->
+      <div class="controls">
+        <button id="revealBtn">Reveal Cards</button>
+        <input type="text" id="hexInput0" class="hex-input" placeholder="Hex 1">
+        <input type="text" id="hexInput1" class="hex-input" placeholder="Hex 2">
+        <input type="text" id="hexInput2" class="hex-input" placeholder="Hex 3">
+      </div>
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card" id="card0">
+          <div class="card-shell">
+            <div class="card-face card-back">
+              <img src="../assets/images/card - back.png" alt="Card Back">
+            </div>
+            <div class="card-face card-front">
+              <img class="card-gif" alt="Card Face">
+              <img class="state-overlay" alt="State Overlay">
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card1">
+          <div class="card-shell">
+            <div class="card-face card-back">
+              <img src="../assets/images/card - back.png" alt="Card Back">
+            </div>
+            <div class="card-face card-front">
+              <img class="card-gif" alt="Card Face">
+              <img class="state-overlay" alt="State Overlay">
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="card2">
+          <div class="card-shell">
+            <div class="card-face card-back">
+              <img src="../assets/images/card - back.png" alt="Card Back">
+            </div>
+            <div class="card-face card-front">
+              <img class="card-gif" alt="Card Face">
+              <img class="state-overlay" alt="State Overlay">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- CONSOLES -->
-    <div class="console-wrapper">
-      <div class="console-box system-console">
-        <div class="console-output" id="systemConsole"></div>
-      </div>
-      <div class="console-box oracle-console">
-        <div class="console-output" id="oracleConsole"></div>
-      </div>
+    <div class="consoles">
+      <div id="systemConsole" class="console-box"></div>
+      <div id="oracleConsole" class="console-box"></div>
     </div>
 
   </div>
 
-  <script src="../scripts/oracle-flow.js"></script>
 </body>
 </html>
