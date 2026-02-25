@@ -3,15 +3,6 @@ const systemConsole = document.getElementById("systemConsole");
 const oracleConsole = document.getElementById("oracleConsole");
 const revealBtn = document.getElementById("revealBtn");
 
-const states = [
-  { name: "STABLE", file: "state - stable.png", class: "stable" },
-  { name: "REDUNDANT", file: "state - redundant.png", class: "redundant" },
-  { name: "DEPRECATED", file: "state - deprecated.png", class: "deprecated" },
-  { name: "ELEVATED", file: "state - elevated.png", class: "elevated" },
-  { name: "CORRUPTED", file: "state - corrupted.png", class: "corrupted" },
-  { name: "EXPERIMENTAL", file: "state - experimental.png", class: "experimental" }
-];
-
 let systemData = [];
 let translatedData = [];
 
@@ -25,10 +16,6 @@ Promise.all([
   translatedData = translated;
 })
 .catch(err => console.error("Failed to load JSON:", err));
-
-function randomFrom(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
 
 function typeText(text, container) {
   container.textContent = "";
@@ -85,23 +72,27 @@ revealBtn.addEventListener("click", () => {
       return;
     }
 
-    const state = randomFrom(states);
-
     const shell = slot.querySelector(".card-shell");
     const gif = slot.querySelector(".card-gif");
     const overlay = slot.querySelector(".state-overlay");
 
+    // Set card front
     gif.src = `../assets/gifs/card - ${systemEntry.Archetype.toLowerCase()}.gif`;
     gif.alt = systemEntry.Archetype;
-    overlay.src = `../assets/images/${state.file}`;
-    overlay.className = `state-overlay ${state.class}`;
 
-    shell.classList.add("flipped");
+    // Apply the state from the data, not random
+    overlay.src = `../assets/images/state - ${systemEntry.State.toLowerCase()}.png`;
+    overlay.className = `state-overlay ${systemEntry.State.toLowerCase()} active`;
 
-    writeConsole(`[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${state.name})
+    // Flip the card
+    shell.parentElement.classList.add("flipped");
+
+    // Write system meaning
+    writeConsole(`[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${systemEntry.State})
 ${systemEntry.Meaning}`, systemConsole);
 
-    writeConsole(`[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${state.name})
+    // Write oracle meaning
+    writeConsole(`[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${systemEntry.State})
 ${translatedEntry ? translatedEntry.Meaning : "NO DATA AVAILABLE"}`, oracleConsole);
   });
 });
