@@ -1,12 +1,36 @@
-/* Cards section */
+/* =========================
+   PAGE LAYOUT
+========================= */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: black;
+  color: #0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Container for cards + console */
+.flow-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* =========================
+   CARDS
+========================= */
 .cards {
   display: flex;
   gap: 20px;
 }
 
 .card {
-  width: 180px;   /* slightly bigger */
-  height: 300px;  /* slightly bigger */
+  width: 180px;  /* slightly bigger */
+  height: 300px; /* slightly bigger */
   perspective: 1200px;
 }
 
@@ -43,6 +67,9 @@
   position: relative;
 }
 
+/* =========================
+   STATE OVERLAY
+========================= */
 .state-overlay {
   position: absolute;
   inset: 0;
@@ -51,8 +78,55 @@
   object-fit: cover;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .state-overlay.active {
   opacity: 1;
+}
+
+/* =========================
+   CONSOLE BOXES
+========================= */
+.console-box {
+  width: 300px;
+  min-height: 200px;
+  background: #000;
+  border: 1px solid #0ff;
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  font-family: monospace;
+  font-size: 14px;
+  color: #0ff;
+}
+
+.console-box:last-child {
+  margin-bottom: 0;
+}
+
+/* Container for stacked consoles */
+.consoles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* =========================
+   REVEAL BUTTON
+========================= */
+#revealBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: transparent;
+  color: #0ff;
+  border: 1px solid #0ff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#revealBtn:hover {
+  background: #0ff1a;
 }
