@@ -67,8 +67,8 @@ body {
 }
 
 .card {
- width: 210px;
- height: 350px;
+ width: 220px;
+ height: 380px;
  perspective: 1200px;
 }
 
@@ -143,5 +143,6 @@ body {
   font-size: 14px;
   color: #0ff;
 }
+
 
 
