@@ -1,5 +1,6 @@
 const slots = document.querySelectorAll(".card");
-const consoleOutput = document.querySelector(".console-output");
+const systemConsole = document.getElementById("systemConsole");
+const oracleConsole = document.getElementById("oracleConsole");
 const revealBtn = document.getElementById("revealBtn");
 
 const states = [
@@ -14,7 +15,7 @@ const states = [
 let systemData = [];
 let translatedData = [];
 
-// Load both JSON files
+// Load JSON files
 Promise.all([
   fetch("../data/oracle.json").then(res => res.json()),
   fetch("../data/translated.json").then(res => res.json())
@@ -25,12 +26,10 @@ Promise.all([
 })
 .catch(err => console.error("Failed to load JSON:", err));
 
-// Helper: random state
 function randomFrom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-// Helper: typewriter effect
 function typeText(text, container) {
   container.textContent = "";
   let i = 0;
@@ -41,16 +40,13 @@ function typeText(text, container) {
   }, 18);
 }
 
-// Helper: write to console
-function writeConsole(text) {
+function writeConsole(text, container) {
   const line = document.createElement("div");
-  consoleOutput.appendChild(line);
+  container.appendChild(line);
   typeText(text, line);
 }
 
-// ====================
-// INITIALIZE CARD BACKS
-// ====================
+// Initialize card backs
 slots.forEach(slot => {
   slot.innerHTML = `
     <div class="card-shell">
@@ -65,9 +61,7 @@ slots.forEach(slot => {
   `;
 });
 
-// ====================
-// REVEAL BUTTON CLICK
-// ====================
+// Reveal cards
 revealBtn.addEventListener("click", () => {
   const hexInputs = [
     document.getElementById("inputHex").value.trim().toUpperCase(),
@@ -75,7 +69,8 @@ revealBtn.addEventListener("click", () => {
     document.getElementById("outputHex").value.trim().toUpperCase()
   ];
 
-  consoleOutput.textContent = "";
+  systemConsole.textContent = "";
+  oracleConsole.textContent = "";
 
   slots.forEach((slot, idx) => {
     const hex = hexInputs[idx];
@@ -85,32 +80,28 @@ revealBtn.addEventListener("click", () => {
     const translatedEntry = translatedData.find(row => row["Hex Code"] === hex);
 
     if (!systemEntry) {
-      writeConsole(`[${hex}] NO DATA AVAILABLE`);
+      writeConsole(`[${hex}] NO DATA AVAILABLE`, systemConsole);
+      writeConsole(`[${hex}] NO DATA AVAILABLE`, oracleConsole);
       return;
     }
 
-    // Pick random state
     const state = randomFrom(states);
 
-    // Get front elements
     const shell = slot.querySelector(".card-shell");
     const gif = slot.querySelector(".card-gif");
     const overlay = slot.querySelector(".state-overlay");
 
-    // Set front images
     gif.src = `../assets/gifs/card - ${systemEntry.Archetype.toLowerCase()}.gif`;
     gif.alt = systemEntry.Archetype;
     overlay.src = `../assets/images/${state.file}`;
     overlay.className = `state-overlay ${state.class}`;
 
-    // Flip the card
     shell.classList.add("flipped");
 
-    // Write console output
-    const text = `[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${state.name})
-SYSTEM: ${systemEntry.Meaning}
-ORACLE: ${translatedEntry ? translatedEntry.Meaning : "NO DATA AVAILABLE"}`;
+    writeConsole(`[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${state.name})
+${systemEntry.Meaning}`, systemConsole);
 
-    writeConsole(text);
+    writeConsole(`[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${state.name})
+${translatedEntry ? translatedEntry.Meaning : "NO DATA AVAILABLE"}`, oracleConsole);
   });
 });
