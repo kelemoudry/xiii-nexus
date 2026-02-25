@@ -33,30 +33,59 @@ Promise.all([
 ]).catch(err => console.error("Failed to load oracle data", err));
 
 // ==============================
-// ORACLE MODE FLAG
+// ORACLE MODE MANAGEMENT
 // ==============================
-let ORACLE_MODE = localStorage.getItem("oracleMode") === "true";
+const ORACLE_KEY = "oracleMode";
+const ORACLE_TIME_KEY = "oracleActivatedAt";
+const ORACLE_DURATION = 30 * 60 * 1000; // 30 minutes
+
+function isOracleActive() {
+  const active = localStorage.getItem(ORACLE_KEY) === "true";
+  const activatedAt = parseInt(localStorage.getItem(ORACLE_TIME_KEY), 10);
+
+  if (!active || !activatedAt) return false;
+
+  const now = Date.now();
+
+  if (now - activatedAt > ORACLE_DURATION) {
+    disableOracleMode();
+    return false;
+  }
+
+  return true;
+}
+
+function enableOracleMode() {
+  localStorage.setItem(ORACLE_KEY, "true");
+  localStorage.setItem(ORACLE_TIME_KEY, Date.now());
+  ORACLE_MODE = true;
+  prompt.textContent = "Oracle Activated. Scan your card.";
+}
+
+function disableOracleMode() {
+  localStorage.removeItem(ORACLE_KEY);
+  localStorage.removeItem(ORACLE_TIME_KEY);
+  ORACLE_MODE = false;
+  prompt.textContent = "Oracle Closed.";
+}
+
+let ORACLE_MODE = isOracleActive();
 
 // ==============================
 // FLIP CARD & SHOW MEANINGS
 // ==============================
 function revealCard(archetype, stage) {
-  // pick random state
+
   const state = STATES[Math.floor(Math.random() * STATES.length)];
 
-  // Set card face GIF
   cardGif.src = `../assets/gifs/card - ${archetype.toLowerCase()}.gif`;
-
-  // Flip card
   card.classList.add("flipped");
 
-  // Show state overlay after flip
   setTimeout(() => {
     stateOverlay.src = state.src;
     stateOverlay.className = `state-overlay active ${state.class}`;
     stateOverlay.style.display = "block";
 
-    // Show meanings in console
     showMeaning(archetype, state.name, stage);
   }, 900);
 }
@@ -65,6 +94,9 @@ function revealCard(archetype, stage) {
 // SHOW SYSTEM + ORACLE MEANING
 // ==============================
 function showMeaning(archetype, stateName, stage) {
+
+  ORACLE_MODE = isOracleActive(); // always re-check expiration
+
   const systemEntry = systemOracle.find(row =>
     row.Archetype === archetype &&
     row.State === stateName &&
@@ -85,10 +117,12 @@ function showMeaning(archetype, stateName, stage) {
   }
 
   // ORACLE CONSOLE
-  if (oracleEntry) {
+  if (ORACLE_MODE && oracleEntry) {
     typeText(consoleOracle, `[${oracleEntry["Hex Code"]}] ${oracleEntry.Meaning}`);
+  } else if (!ORACLE_MODE) {
+    consoleOracle.textContent = "ORACLE MODE INACTIVE";
   } else {
-    consoleOracle.textContent = `NO TRANSLATED DATA AVAILABLE`;
+    consoleOracle.textContent = "NO TRANSLATED DATA AVAILABLE";
   }
 }
 
@@ -113,30 +147,33 @@ async function startNFCListener() {
     try {
       const ndef = new NDEFReader();
       await ndef.scan();
-      console.log("NFC listener active. Waiting for card scan...");
+      console.log("NFC listener active.");
       prompt.textContent = "Scan your card";
 
       ndef.onreading = event => {
         for (const record of event.message.records) {
+
           if (record.recordType === "url" || record.recordType === "text") {
-            const value = record.data || new TextDecoder().decode(record.data);
+
+            const value = new TextDecoder().decode(record.data);
             console.log("Card scanned:", value);
 
-            // Extract archetype from URL
-           const parts = value.split("/");
-           const lastSegment = parts[parts.length - 1].toLowerCase();
+            const parts = value.split("/");
+            const lastSegment = parts[parts.length - 1].toLowerCase();
 
-           // If Oracle Key scanned
-          if (lastSegment === "oracle-query") {
-          localStorage.setItem("oracleMode", "true");
-          ORACLE_MODE = true;
-          prompt.textContent = "Oracle Activated. Scan your card.";
-           return;
-           }
+            // 🔮 ORACLE KEY TOGGLE
+            if (lastSegment === "oracle-query") {
+
+              if (isOracleActive()) {
+                disableOracleMode();   // Close third eye
+              } else {
+                enableOracleMode();    // Open third eye
+              }
+
+              return;
+            }
 
             const archetype = lastSegment.toUpperCase();
-
-            // For single-card query, stage is always "Process"
             revealCard(archetype, "Process");
           }
         }
@@ -147,13 +184,15 @@ async function startNFCListener() {
       prompt.textContent = "NFC not available on this device.";
     }
   } else {
-    console.warn("Web NFC not supported on this device/browser.");
+    console.warn("Web NFC not supported.");
     prompt.textContent = "Web NFC not supported.";
   }
 }
 
 // ==============================
-// START LISTENER ON PAGE LOAD
+// START LISTENER
 // ==============================
-window.addEventListener("load", startNFCListener);
-
+window.addEventListener("load", () => {
+  ORACLE_MODE = isOracleActive();
+  startNFCListener();
+});
