@@ -82,7 +82,7 @@ html, body {
   width: 100%;
   height: 100%;
   position: relative;
-  border-radius: 8px;
+  border-radius: 14px;
   transform-style: preserve-3d;
   transition: transform 0.9s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
@@ -285,3 +285,4 @@ html, body {
 .console::-webkit-scrollbar-track {
   background: transparent;
 }
+
