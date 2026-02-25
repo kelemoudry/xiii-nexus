@@ -1,54 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>XIII.NEXUS — Oracle Query</title>
-  <link rel="stylesheet" href="../styles/oracle-query.css">
-    <script>
-      // Enable oracle mode for this session
-    localStorage.setItem("oracleMode", "true");
-    </script>
-  <script src="../scripts/oracle-query.js" defer></script>
+<meta charset="UTF-8">
+<title>Oracle Threshold</title>
+<link rel="stylesheet" href="../styles/oracle-query.css">
 </head>
 <body>
 
-  <div class="page-container">
+<div class="oracle-container">
 
-    <!-- CARD CENTER -->
-    <div class="card-container">
-      <div class="card" id="card">
-        <div class="card-shell">
-
-          <!-- BACK -->
-          <div class="card-face card-back">
-            <img src="../assets/images/card - back.png" alt="Card Back">
-          </div>
-
-          <!-- FRONT -->
-          <div class="card-face card-front">
-            <img class="card-gif" alt="Card Face">
-            <img class="state-overlay" id="stateOverlay" alt="State Overlay">
-          </div>
-
-        </div>
-      </div>
-      <div class="prompt">Scan card</div>
-    </div>
-
-    <!-- CONSOLE BOXES -->
-    <div class="console-container">
-      <div class="console">
-        <div class="console-label">SYSTEM</div>
-        <div class="console-output console-system"></div>
-      </div>
-      <div class="console">
-        <div class="console-label">ORACLE</div>
-        <div class="console-output console-oracle"></div>
-      </div>
-    </div>
-
+  <div class="eye-wrapper">
+    <div class="eye">
+     <div class="lid top"></div>
+     <div class="lid bottom"></div>
+     <div class="pupil"></div>
+   </div>
   </div>
 
+  <div class="oracle-message" id="oracleMessage">
+    Initializing...
+  </div>
+
+</div>
+
+<script src="../scripts/oracle-query.js"></script>
 </body>
 </html>
-
