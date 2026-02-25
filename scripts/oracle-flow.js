@@ -25,12 +25,12 @@ Promise.all([
 })
 .catch(err => console.error("Failed to load JSON:", err));
 
-// Random helper
+// Helper: random state
 function randomFrom(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-// Typing effect
+// Helper: typewriter effect
 function typeText(text, container) {
   container.textContent = "";
   let i = 0;
@@ -41,9 +41,34 @@ function typeText(text, container) {
   }, 18);
 }
 
-// Proceed button click
-revealBtn.addEventListener("click", () => {
+// Helper: write to console
+function writeConsole(text) {
+  const line = document.createElement("div");
+  consoleOutput.appendChild(line);
+  typeText(text, line);
+}
 
+// ====================
+// INITIALIZE CARD BACKS
+// ====================
+slots.forEach(slot => {
+  slot.innerHTML = `
+    <div class="card-shell">
+      <div class="card-face card-back">
+        <img src="../assets/images/card - back.png" alt="Card Back">
+      </div>
+      <div class="card-face card-front">
+        <img class="card-gif" alt="Card Face">
+        <img class="state-overlay" alt="State Overlay">
+      </div>
+    </div>
+  `;
+});
+
+// ====================
+// REVEAL BUTTON CLICK
+// ====================
+revealBtn.addEventListener("click", () => {
   const hexInputs = [
     document.getElementById("inputHex").value.trim().toUpperCase(),
     document.getElementById("processHex").value.trim().toUpperCase(),
@@ -53,11 +78,9 @@ revealBtn.addEventListener("click", () => {
   consoleOutput.textContent = "";
 
   slots.forEach((slot, idx) => {
-
     const hex = hexInputs[idx];
     if (!hex) return;
 
-    // Lookup system and translated
     const systemEntry = systemData.find(row => row["Hex Code"] === hex);
     const translatedEntry = translatedData.find(row => row["Hex Code"] === hex);
 
@@ -69,18 +92,19 @@ revealBtn.addEventListener("click", () => {
     // Pick random state
     const state = randomFrom(states);
 
-    // Build card DOM
-    slot.innerHTML = `
-      <div class="card-shell flipped">
-        <div class="card-face card-back">
-          <img src="../assets/images/card - back.png" alt="Card Back">
-        </div>
-        <div class="card-face card-front">
-          <img class="card-gif" src="../assets/gifs/card - ${systemEntry.Archetype.toLowerCase()}.gif" alt="${systemEntry.Archetype}">
-          <img class="state-overlay ${state.class} active" src="../assets/images/${state.file}" alt="State Overlay">
-        </div>
-      </div>
-    `;
+    // Get front elements
+    const shell = slot.querySelector(".card-shell");
+    const gif = slot.querySelector(".card-gif");
+    const overlay = slot.querySelector(".state-overlay");
+
+    // Set front images
+    gif.src = `../assets/gifs/card - ${systemEntry.Archetype.toLowerCase()}.gif`;
+    gif.alt = systemEntry.Archetype;
+    overlay.src = `../assets/images/${state.file}`;
+    overlay.className = `state-overlay ${state.class}`;
+
+    // Flip the card
+    shell.classList.add("flipped");
 
     // Write console output
     const text = `[${hex}] ${slot.dataset.position.toUpperCase()} :: ${systemEntry.Archetype} (${state.name})
@@ -90,10 +114,3 @@ ORACLE: ${translatedEntry ? translatedEntry.Meaning : "NO DATA AVAILABLE"}`;
     writeConsole(text);
   });
 });
-
-// Helper to append console lines
-function writeConsole(text) {
-  const line = document.createElement("div");
-  consoleOutput.appendChild(line);
-  typeText(text, line);
-}
