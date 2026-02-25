@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XIII.NEXUS — Oracle Flow</title>
+  <link rel="stylesheet" href="../styles/oracle-flow.css">
+</head>
+<body>
+
+  <div class="flow-container">
+
+    <!-- Input Fields -->
+    <div class="hex-inputs">
+      <div class="field">
+        <label for="inputHex">INPUT HEX</label>
+        <input type="text" id="inputHex" placeholder="Paste HEX Code">
+      </div>
+      <div class="field">
+        <label for="processHex">PROCESS HEX</label>
+        <input type="text" id="processHex" placeholder="Paste HEX Code">
+      </div>
+      <div class="field">
+        <label for="outputHex">OUTPUT HEX</label>
+        <input type="text" id="outputHex" placeholder="Paste HEX Code">
+      </div>
+      <button id="revealBtn">Reveal Cards</button>
+    </div>
+
+    <!-- Card Slots -->
+    <div class="card-slots">
+      <div class="card" data-position="Input"></div>
+      <div class="card" data-position="Process"></div>
+      <div class="card" data-position="Output"></div>
+    </div>
+
+    <!-- Console -->
+    <div class="console">
+      <div class="console-output"></div>
+    </div>
+
+  </div>
+
+  <script src="../scripts/oracle-flow.js"></script>
+</body>
+</html>
