@@ -13,17 +13,18 @@
     <!-- CARD SECTION -->
     <div class="cards-section">
 
-      <!-- Controls: Reveal button + hex inputs -->
+      <!-- Controls -->
       <div class="controls">
         <button id="revealBtn">Reveal Cards</button>
-        <input type="text" id="hexInput0" class="hex-input" placeholder="Hex 1">
-        <input type="text" id="hexInput1" class="hex-input" placeholder="Hex 2">
-        <input type="text" id="hexInput2" class="hex-input" placeholder="Hex 3">
+        <input type="text" id="hexInput0" class="hex-input" placeholder="Hex 1 (INPUT)">
+        <input type="text" id="hexInput1" class="hex-input" placeholder="Hex 2 (PROCESS)">
+        <input type="text" id="hexInput2" class="hex-input" placeholder="Hex 3 (OUTPUT)">
       </div>
 
       <!-- Cards -->
       <div class="cards">
-        <div class="card" id="card0">
+
+        <div class="card" data-position="INPUT">
           <div class="card-shell">
             <div class="card-face card-back">
               <img src="../assets/images/card - back.png" alt="Card Back">
@@ -35,7 +36,7 @@
           </div>
         </div>
 
-        <div class="card" id="card1">
+        <div class="card" data-position="PROCESS">
           <div class="card-shell">
             <div class="card-face card-back">
               <img src="../assets/images/card - back.png" alt="Card Back">
@@ -47,7 +48,7 @@
           </div>
         </div>
 
-        <div class="card" id="card2">
+        <div class="card" data-position="OUTPUT">
           <div class="card-shell">
             <div class="card-face card-back">
               <img src="../assets/images/card - back.png" alt="Card Back">
@@ -58,6 +59,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
